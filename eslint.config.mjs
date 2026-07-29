@@ -1,6 +1,14 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+/*
+  eslint-config-next 16 exports flat configs already. Wrapping them in
+  FlatCompat, as the older create-next-app template does, makes ESLint try to
+  serialise a plugin object that references itself and it dies with
+  "Converting circular structure to JSON". Spread them directly instead.
+*/
+import coreWebVitals from "eslint-config-next/core-web-vitals";
+import typescript from "eslint-config-next/typescript";
 
-const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta.url)) });
-export default [...compat.extends("next/core-web-vitals", "next/typescript")];
+export default [
+  { ignores: [".next/**", "node_modules/**", "next-env.d.ts"] },
+  ...coreWebVitals,
+  ...typescript,
+];
