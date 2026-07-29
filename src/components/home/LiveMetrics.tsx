@@ -63,7 +63,7 @@ export function LiveMetrics() {
       ok: m ? m.ms <= BUDGET.ms : null,
     },
     {
-      label: "Transferred",
+      label: "Initial load",
       value: m ? `${m.kb} KB` : "measuring",
       note: m?.cached ? "Mostly from cache this visit" : `Budget ${BUDGET.kb} KB`,
       ok: m && !m.cached ? m.kb <= BUDGET.kb : null,
@@ -111,9 +111,11 @@ export function LiveMetrics() {
 
         <Reveal delay={0.3}>
           <p className="prose-measure mt-8 text-[0.95rem] text-dim">
-            No third party scripts, no tracking, no font loaded from someone else&rsquo;s
-            server. The budget is published so it can be held against me, and this readout
-            comes straight from the Performance API rather than a screenshot taken on a
+            Measured at the load event, so it is what this page cost to show you rather
+            than what it weighs in total: pictures further down arrive only if you scroll
+            that far. No third party scripts, no tracking, no font served from someone
+            else&rsquo;s domain. The budget is published so it can be held against me, and
+            the readout comes from the Performance API rather than a screenshot taken on a
             good day.
           </p>
         </Reveal>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
+import { Figure } from "@/components/media/Figure";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -67,6 +69,16 @@ export default function StudioPage() {
             </Reveal>
           </dl>
         </div>
+
+        <Reveal delay={0.26}>
+          <Figure
+            image={IMAGES.studioDesk}
+            sizes="(min-width: 640px) 78rem, 100vw"
+            ratio="16 / 9"
+            className="mt-16"
+            caption="Where it gets built"
+          />
+        </Reveal>
 
         <Reveal delay={0.28}>
           <div className="mt-16">

@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
 import { SERVICES, SERVICE_SLUGS, getService } from "@/lib/services";
+import { Figure } from "@/components/media/Figure";
+import { SERVICE_IMAGES } from "@/lib/images";
 
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -42,6 +44,17 @@ export default async function ServiceDetail({
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">{service.intro}</p>
         </Reveal>
+
+        {SERVICE_IMAGES[slug] && (
+          <Reveal delay={0.18}>
+            <Figure
+              image={SERVICE_IMAGES[slug]}
+              sizes="(min-width: 640px) 78rem, 100vw"
+              ratio="16 / 9"
+              className="mt-14"
+            />
+          </Reveal>
+        )}
 
         <div className="mt-16 grid gap-10 border-t border-rule pt-10 sm:grid-cols-12">
           <p className="tag sm:col-span-4">What is included</p>

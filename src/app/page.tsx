@@ -3,6 +3,7 @@ import { LiveMetrics } from "@/components/home/LiveMetrics";
 import { Services } from "@/components/home/Services";
 import { Process } from "@/components/home/Process";
 import { Standard } from "@/components/home/Standard";
+import { Interlude } from "@/components/home/Interlude";
 import { TheWork } from "@/components/home/TheWork";
 import { Questions } from "@/components/home/Questions";
 import { CtaBand } from "@/components/home/CtaBand";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Services />
       <Process />
       <Standard />
+      <Interlude />
       <TheWork />
       <Questions />
       <CtaBand />
