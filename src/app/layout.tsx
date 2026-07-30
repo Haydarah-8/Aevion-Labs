@@ -44,8 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={grotesk.variable}>
       <head>
         {/* last line of defence: no JavaScript, no hidden content */}
+        {/* last line of defence: no JavaScript, no hidden content. Covers the
+            fade, the masked heading lines and the clip-path picture reveal. */}
         <noscript>
-          <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
+          <style>
+            {".reveal{opacity:1!important;transform:none!important}" +
+              ".line{transform:none!important}" +
+              ".img-reveal{clip-path:none!important}" +
+              ".img-reveal img{transform:none!important}"}
+          </style>
         </noscript>
       </head>
       <body className="flex min-h-dvh flex-col">

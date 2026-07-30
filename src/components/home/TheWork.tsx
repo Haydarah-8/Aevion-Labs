@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealLines } from "@/components/motion/Reveal";
 
 /**
  * Proof, not apology.
@@ -36,11 +36,11 @@ export function TheWork() {
           <p className="tag">05 · Proof</p>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <h2 className="display mt-8 max-w-[20ch]">
-            The case study is the page you are on.
-          </h2>
-        </Reveal>
+        <RevealLines
+          lines={["The case study is", "the page you are on."]}
+          className="display mt-8 max-w-[20ch]"
+          delay={0.06}
+        />
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">

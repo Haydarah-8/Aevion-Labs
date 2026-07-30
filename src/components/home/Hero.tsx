@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { Reveal } from "@/components/motion/Reveal";
-import { SITE } from "@/lib/site";
+import { Reveal, RevealLines } from "@/components/motion/Reveal";
+
+/* Authored line breaks: a splitting library rewrites the markup it is given,
+   which is how a heading ends up nested inside itself. */
+const HEADLINE = ["Websites, apps and brands", "built like they matter."];
 
 const FACTS = [
   { k: "Discipline", v: "Strategy, design, build" },
@@ -21,9 +24,12 @@ export function Hero() {
           <p className="tag">Web design and development</p>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <h1 className="display-xl mt-6 max-w-[16ch]">{SITE.tagline}</h1>
-        </Reveal>
+        <RevealLines
+          as="h1"
+          lines={HEADLINE}
+          className="display-xl mt-6 max-w-[16ch]"
+          delay={0.06}
+        />
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">

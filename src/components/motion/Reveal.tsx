@@ -3,21 +3,14 @@
 import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 
 /**
- * The only reveal on the site, and deliberately not built on an animation
- * library. There is exactly one effect here, a fade and a short rise, so
- * shipping Framer to the client for it cost about 70 KB to do what a CSS
- * transition already does. On a site that publishes its own page weight that
- * was not a defensible trade.
+ * Every entrance on the site runs through here, and none of it uses an
+ * animation library. One shared IntersectionObserver adds `is-in` to whatever
+ * it sees; the stylesheet decides what that means. Three guarantees:
  *
- * Three guarantees, all learned from the previous build:
- *
- * 1. Reduced motion is handled in the stylesheet, so it holds even if this
- *    component never hydrates.
- * 2. Content can never stay invisible. If the observer never fires, a timer
- *    shows it anyway; if JavaScript never runs at all, the `noscript` override
- *    in the document head shows it.
- * 3. One shared IntersectionObserver for the whole page rather than one per
- *    element.
+ * 1. Reduced motion is handled in CSS, so it holds even without hydration.
+ * 2. Content can never stay hidden. A timer adds `is-in` regardless, and a
+ *    `noscript` override in the document head covers scripting being off.
+ * 3. One observer for the page, not one per element.
  */
 const FAILSAFE_MS = 1200;
 
@@ -42,6 +35,22 @@ function watch(el: HTMLElement) {
   return () => observer?.unobserve(el);
 }
 
+function useInView(delay: number) {
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const stop = watch(el);
+    const t = setTimeout(() => el.classList.add("is-in"), FAILSAFE_MS + delay * 1000);
+    return () => {
+      stop();
+      clearTimeout(t);
+    };
+  }, [delay]);
+  return ref;
+}
+
+/** Fade and a short rise. The default entrance for anything that is not a heading. */
 export function Reveal({
   as: Tag = "div",
   children,
@@ -54,19 +63,7 @@ export function Reveal({
   /** seconds */
   delay?: number;
 }) {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const stop = watch(el);
-    const t = setTimeout(() => el.classList.add("is-in"), FAILSAFE_MS + delay * 1000);
-    return () => {
-      stop();
-      clearTimeout(t);
-    };
-  }, [delay]);
-
+  const ref = useInView(delay);
   return (
     <Tag
       ref={ref}
@@ -75,5 +72,68 @@ export function Reveal({
     >
       {children}
     </Tag>
+  );
+}
+
+/**
+ * Headings only: each line rises out of its own mask on a stagger.
+ *
+ * Lines are authored rather than measured. A splitting library rewrites the
+ * markup it is pointed at, which is how the previous build ended up with a
+ * title nested three deep inside itself. Passing an array costs a moment of
+ * thought per heading and cannot go wrong.
+ */
+export function RevealLines({
+  as: Tag = "h2",
+  lines,
+  className,
+  delay = 0,
+  stagger = 0.07,
+}: {
+  as?: ElementType;
+  lines: readonly string[];
+  className?: string;
+  delay?: number;
+  stagger?: number;
+}) {
+  const ref = useInView(delay);
+  return (
+    <Tag ref={ref} className={className ? `reveal-lines ${className}` : "reveal-lines"}>
+      {lines.map((line, i) => (
+        <span key={i} className="line-mask">
+          <span
+            className="line"
+            style={{ "--line-delay": `${delay + i * stagger}s` } as React.CSSProperties}
+          >
+            {/* Trailing space on every line but the last. The lines are block
+                level so it never renders, but without it the heading's text
+                content runs together as "breakat the handoff" for anyone
+                copying it, and for anything reading the DOM rather than the
+                layout. */}
+            {i < lines.length - 1 ? `${line} ` : line}
+          </span>
+        </span>
+      ))}
+    </Tag>
+  );
+}
+
+/** Wrapper that only adds `is-in`. Used by Figure for the clip reveal. */
+export function InView({
+  children,
+  className,
+  delay = 0,
+  style,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  style?: React.CSSProperties;
+}) {
+  const ref = useInView(delay);
+  return (
+    <div ref={ref as React.RefObject<HTMLDivElement>} className={className} style={style}>
+      {children}
+    </div>
   );
 }

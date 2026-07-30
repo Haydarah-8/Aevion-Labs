@@ -206,8 +206,110 @@ body {
     transform: none;
   }
 
+  /* Headings: each authored line rises out of its own mask. The bottom padding
+     is not decorative, it stops the mask clipping descenders. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+  }
+
+  .line {
+    display: block;
+    padding-bottom: 0.08em;
+    transform: translateY(115%);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--line-delay, 0s);
+  }
+
+  .reveal-lines.is-in .line {
+    transform: translateY(0);
+  }
+
+  /* Pictures un-clip upward while the image settles out of a slight zoom.
+     No `round` keyword in the inset: browsers will not interpolate it. */
+  .img-reveal {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .img-reveal.is-in {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  .img-reveal img {
+    transform: scale(1.18);
+    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .img-reveal.is-in img {
+    transform: scale(1);
+  }
+
+  /* Digits roll into place as the measurement lands. Character by character,
+     so the numbers read as counting up rather than appearing. */
+  .odo {
+    display: inline-flex;
+  }
+
+  .odo-mask {
+    display: inline-block;
+    overflow: hidden;
+    white-space: pre;
+    vertical-align: bottom;
+  }
+
+  .odo-ch {
+    display: inline-block;
+    animation: odo-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+
+  @keyframes odo-rise {
+    from {
+      transform: translateY(115%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
   .section {
     padding-block: clamp(4rem, 9vw, 8rem);
+  }
+}
+
+/*
+  The picture strip scrubs sideways off scroll position, driven entirely by
+  `animation-timeline`. No scroll listener, no rAF loop, no library: the
+  compositor runs it. Browsers without support get a static strip, which is a
+  perfectly good strip.
+*/
+.band-viewport {
+  overflow: clip;
+  -webkit-mask-image: linear-gradient(90deg, #0000, #000 7%, #000 93%, #0000);
+  mask-image: linear-gradient(90deg, #0000, #000 7%, #000 93%, #0000);
+}
+
+.band-track {
+  display: flex;
+  gap: var(--gutter);
+  width: max-content;
+  will-change: transform;
+}
+
+@supports (animation-timeline: view()) {
+  .band-track {
+    animation: band-scrub linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  @keyframes band-scrub {
+    from {
+      transform: translateX(-2%);
+    }
+    to {
+      transform: translateX(-16%);
+    }
   }
 }
 
@@ -217,11 +319,27 @@ body {
   stylesheet is the single source of truth for whether anything moves.
 */
 @media (prefers-reduced-motion: reduce) {
-  /* nothing rises, nothing fades: content is simply there */
-  .reveal {
+  /* nothing rises, nothing fades, nothing scrubs: content is simply there */
+  .reveal,
+  .line,
+  .img-reveal img {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+
+  .img-reveal {
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .odo-ch {
+    animation: none !important;
+  }
+
+  .band-track {
+    animation: none !important;
+    transform: translateX(-2%) !important;
   }
 
   *,

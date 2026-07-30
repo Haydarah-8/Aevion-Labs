@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
 
@@ -70,11 +70,12 @@ export default function WorkPage() {
           <Reveal>
             <p className="tag">Case study · 2026</p>
           </Reveal>
-          <Reveal delay={0.06}>
-            <h1 className="display mt-6 max-w-[18ch]">
-              The best evidence available is the page you are standing on.
-            </h1>
-          </Reveal>
+          <RevealLines
+            as="h1"
+            lines={["The best evidence available", "is the page you are standing on."]}
+            className="display mt-6 max-w-[18ch]"
+            delay={0.06}
+          />
           <Reveal delay={0.12}>
             <p className="lede prose-measure mt-8">
               Most portfolios ask you to take the screenshots on trust. This one does not
@@ -141,11 +142,10 @@ export default function WorkPage() {
 
       <section className="section border-t border-rule bg-sheet">
         <div className="shell">
-          <Reveal>
-            <h2 className="display max-w-[20ch]">
-              This is the standard your project starts from.
-            </h2>
-          </Reveal>
+          <RevealLines
+            lines={["This is the standard", "your project starts from."]}
+            className="display max-w-[20ch]"
+          />
           <Reveal delay={0.08}>
             <p className="lede prose-measure mt-8">
               None of it is a premium tier or a stretch goal. It is simply what leaving the

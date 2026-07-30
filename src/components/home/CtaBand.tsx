@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { SITE } from "@/lib/site";
 
 export function CtaBand() {
@@ -9,9 +9,11 @@ export function CtaBand() {
         <Reveal>
           <p className="tag">07 · Next</p>
         </Reveal>
-        <Reveal delay={0.06}>
-          <h2 className="display mt-8 max-w-[16ch]">Tell us what you are building.</h2>
-        </Reveal>
+        <RevealLines
+          lines={["Tell us what", "you are building."]}
+          className="display mt-8 max-w-[16ch]"
+          delay={0.06}
+        />
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
             Send what you are working on, roughly when you need it, and where you are

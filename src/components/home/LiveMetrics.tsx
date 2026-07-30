@@ -39,6 +39,23 @@ function read(): Metrics | null {
  * the visitor's own browser produced. Nothing is hardcoded, so it cannot drift
  * away from the truth: if the site gets slower, this section says so.
  */
+/** Characters rise into place one after another, so a measurement reads as
+    arriving rather than appearing. Remounts on value change, which is what
+    restarts the animation. */
+function Odometer({ value }: { value: string }) {
+  return (
+    <span className="odo" aria-label={value}>
+      {[...value].map((ch, i) => (
+        <span key={i} className="odo-mask" aria-hidden="true">
+          <span className="odo-ch" style={{ "--i": i } as React.CSSProperties}>
+            {ch}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export function LiveMetrics() {
   const [m, setM] = useState<Metrics | null>(null);
 
@@ -97,7 +114,9 @@ export function LiveMetrics() {
             <Reveal key={c.label} delay={0.1 + i * 0.06}>
               <div className="h-full bg-paper p-6 sm:p-8">
                 <dt className="tag">{c.label}</dt>
-                <dd className="display mt-4 tabular-nums">{c.value}</dd>
+                <dd className="display mt-4 tabular-nums">
+                  <Odometer key={c.value} value={c.value} />
+                </dd>
                 <p className="mt-3 text-[0.9rem] text-dim">
                   {c.note}
                   {c.ok !== null && (

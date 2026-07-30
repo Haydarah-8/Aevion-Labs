@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
 
@@ -17,11 +17,12 @@ export default function StudioPage() {
         <Reveal>
           <p className="tag">Studio</p>
         </Reveal>
-        <Reveal delay={0.06}>
-          <h1 className="display mt-6 max-w-[20ch]">
-            Most web projects break at the handoff. This one has none.
-          </h1>
-        </Reveal>
+        <RevealLines
+          as="h1"
+          lines={["Most web projects break", "at the handoff.", "This one has none."]}
+          className="display mt-6 max-w-[20ch]"
+          delay={0.06}
+        />
 
         <div className="mt-12 grid gap-10 sm:grid-cols-12">
           <div className="prose-measure space-y-6 sm:col-span-7">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { InView } from "@/components/motion/Reveal";
 import type { Img } from "@/lib/images";
 
 /**
@@ -31,7 +32,10 @@ export function Figure({
 }) {
   return (
     <figure className={className}>
-      <div className="relative overflow-hidden bg-sheet" style={ratio ? { aspectRatio: ratio } : undefined}>
+      <InView
+        className="img-reveal relative overflow-hidden bg-sheet"
+        style={ratio ? { aspectRatio: ratio } : undefined}
+      >
         <Image
           src={image.src}
           alt={image.alt}
@@ -41,7 +45,7 @@ export function Figure({
           className={ratio ? "h-full w-full object-cover" : "h-auto w-full"}
           {...(ratio ? { fill: true } : {})}
         />
-      </div>
+      </InView>
       {caption && <figcaption className="tag mt-3">{caption}</figcaption>}
     </figure>
   );
