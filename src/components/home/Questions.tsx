@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 const QA = [
   {
     q: "What does a site cost?",
-    a: "Every project is quoted as one fixed price after the first call. No hourly billing, no surprise invoices. Tell me the budget you have and I will tell you honestly what is achievable inside it, or say if it is not enough.",
+    a: "Every project is quoted as one fixed price after the first call. No hourly billing, no surprise invoices. Say what the budget is and you will get an honest answer about what fits inside it, or a straight no if it does not stretch far enough.",
   },
   {
     q: "How long does it take?",
@@ -14,8 +14,12 @@ const QA = [
     a: "You get a walkthrough of how to edit everything yourself. Keep me on a retainer for changes if it is useful, and if it is not, the site runs perfectly well without me.",
   },
   {
-    q: "Why one person and not an agency?",
-    a: "Because most web projects break at the handoff. One person costs less, moves faster and cannot lose the intent between the pitch and the build. The trade off is capacity: I take a small number of projects at a time.",
+    q: "What happens if it goes wrong?",
+    a: "You see the work every week rather than at the end, so a wrong direction surfaces in week two and not week eight. If you decide to stop at any point, everything produced up to then is yours: designs, code, repository access, no argument and no exit fee.",
+  },
+  {
+    q: "What do you need from me?",
+    a: "Roughly four hours across the whole project: one call at the start, a review each week, and a decision when one is needed. Copy and photography are the usual bottleneck, so if you have them ready the schedule holds.",
   },
 ];
 
@@ -33,7 +37,7 @@ export function Questions() {
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[20ch]">
-            The questions everybody asks on the first call.
+            The things worth knowing before you send anything.
           </h2>
         </Reveal>
 

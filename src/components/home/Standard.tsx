@@ -4,7 +4,7 @@ const COMMITMENTS = [
   {
     n: "01",
     name: "You talk to the person building it",
-    text: "No account managers, no brief passed down a chain until the intent is gone. The person you scope it with writes the code.",
+    text: "No account managers, no brief passed down a chain until the intent is gone. The person who scopes the project is the person who writes the code.",
   },
   {
     n: "02",
@@ -32,8 +32,8 @@ export function Standard() {
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[26ch]">
-            Four commitments. The things I would want promised to me if I were hiring
-            someone to build my site.
+            Four commitments, in writing. The things any studio should be willing to put
+            in front of you before you sign anything.
           </h2>
         </Reveal>
 

@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description:
-    "I design and build fast, clear websites for founders and small teams. One person, start to finish, so nothing is lost in a handoff.",
+    "Websites, web apps and brand systems for founders and small teams. Strategy, interface and engineering under one roof, so nothing is lost in a handoff.",
   openGraph: {
     title: `${SITE.name} · Web design and development`,
-    description: "Fast, clear websites. Designed and built by one person, start to finish.",
+    description: "Fast, clear websites. Strategy, design and engineering under one roof.",
     url: SITE.url,
     siteName: SITE.name,
     type: "website",
@@ -35,7 +35,7 @@ const JSON_LD = {
   url: SITE.url,
   email: SITE.email,
   description:
-    "Web design and development for founders and small teams. Strategy, interface and engineering handled by one person.",
+    "Web design and development for founders and small teams. Strategy, interface and engineering handled under one roof.",
   areaServed: "Worldwide",
 };
 

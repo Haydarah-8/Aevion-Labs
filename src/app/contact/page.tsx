@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Tell me what you are building. I reply within two working days.",
+  description: "Tell us what you are building. A reply within two working days, with honest next steps and an idea of cost.",
 };
 
 export default function ContactPage() {
@@ -18,13 +18,13 @@ export default function ContactPage() {
               <p className="tag">Contact</p>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="display mt-6 max-w-[14ch]">Tell me what you are building.</h1>
+              <h1 className="display mt-6 max-w-[14ch]">Tell us what you are building.</h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="lede prose-measure mt-8">
-                Three fields. I read every enquiry myself and reply within two working days
-                with honest next steps, including if I think you would be better served
-                elsewhere.
+                Three fields, and a reply within two working days with honest next steps
+                and an idea of cost. If the work would be better done somewhere else, you
+                will be told that instead.
               </p>
             </Reveal>
             <Reveal delay={0.18}>

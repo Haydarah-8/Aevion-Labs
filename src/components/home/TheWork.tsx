@@ -2,28 +2,29 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 
 /**
- * The honest version of a case study section.
+ * Proof, not apology.
  *
- * BLUEPRINT rule 3: no invented history, no client names, no testimonials. The
- * previous build broke that rule eight times over. Saying "nothing yet" plainly
- * is more persuasive than a fabricated client list, because every visitor has
- * seen a fabricated client list before.
+ * An earlier draft led with "no client list yet". True, and a bad idea: nobody
+ * buys because a studio volunteers what it lacks, and saying it out loud plants
+ * a doubt the visitor had not yet had. The honest and persuasive version is the
+ * same set of facts pointed forwards. Claim nothing untrue. Announce nothing
+ * that does not help.
  */
-const INSTEAD = [
+const PROOF = [
   {
     n: "01",
-    name: "This site",
-    text: "Its numbers are at the top of this page, measured live rather than screenshotted. Judge the build by the thing you are standing in.",
+    name: "Measured in front of you",
+    text: "The load time at the top of this page came from your browser, not from a screenshot taken on a good day.",
   },
   {
     n: "02",
-    name: "The standard",
-    text: "Four commitments, written down above, in plain language. Hold me to them.",
+    name: "Readable by anything",
+    text: "Semantic markup, visible focus on every control, full contrast. Works on a keyboard, with a screen reader, and with scripting switched off.",
   },
   {
     n: "03",
-    name: "A conversation",
-    text: "Bring a real problem to the first call. You will get a straight answer about whether I can solve it, including when I cannot.",
+    name: "Nothing hidden in the build",
+    text: "No trackers, no third party requests, no analytics loading quietly behind the design. What arrives is what you see.",
   },
 ];
 
@@ -32,26 +33,25 @@ export function TheWork() {
     <section className="section border-t border-rule" id="work">
       <div className="shell">
         <Reveal>
-          <p className="tag">05 · The work</p>
+          <p className="tag">05 · Proof</p>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2 className="display mt-8 max-w-[18ch]">
-            No client list yet.
+          <h2 className="display mt-8 max-w-[20ch]">
+            The case study is the page you are on.
           </h2>
         </Reveal>
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
-            Aevion Labs is new. I could fill this page with invented logos and five star
-            quotes from people who do not exist, and you would probably recognise them for
-            what they are. So here is the truth instead, and three things you can judge me
-            on in the meantime.
+            Portfolios ask you to trust the screenshots. There is a better test available:
+            everything this studio claims about speed, clarity and craft is testable from
+            where you are standing, without taking anyone&rsquo;s word for it.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-px border border-rule bg-rule sm:grid-cols-3">
-          {INSTEAD.map((item, i) => (
+          {PROOF.map((item, i) => (
             <Reveal key={item.n} delay={0.05 * i}>
               <div className="flex h-full flex-col gap-3 bg-paper p-6 sm:p-8">
                 <span className="tag">{item.n}</span>
@@ -64,8 +64,8 @@ export function TheWork() {
 
         <Reveal delay={0.24}>
           <p className="mt-10">
-            <Link href="/contact" className="link text-[1.05rem]">
-              Be the first one
+            <Link href="/work" className="link text-[1.05rem]">
+              Read the full case study
             </Link>
           </p>
         </Reveal>

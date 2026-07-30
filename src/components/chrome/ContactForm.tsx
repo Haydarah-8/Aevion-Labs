@@ -44,7 +44,7 @@ export function ContactForm() {
       <div className="border border-rule bg-sheet p-8" role="status">
         <p className="heading">Got it.</p>
         <p className="mt-4 text-dim">
-          I will reply within two working days. If it is urgent, email me directly at{" "}
+          You will get a reply within two working days. If it is urgent, email direct at{" "}
           <a href={`mailto:${SITE.email}`} className="link text-ink">
             {SITE.email}
           </a>

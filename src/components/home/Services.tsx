@@ -33,11 +33,11 @@ export function Services() {
     <section className="section" id="services">
       <div className="shell">
         <Reveal>
-          <p className="tag">02 · What I build</p>
+          <p className="tag">02 · What we build</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[22ch]">
-            Four things, handled by one person, so they fit together.
+            Four disciplines, one roof, so they fit together by default.
           </h2>
         </Reveal>
 

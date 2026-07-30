@@ -14,7 +14,7 @@ export default function ServicesPage() {
         </Reveal>
         <Reveal delay={0.06}>
           <h1 className="display mt-6 max-w-[20ch]">
-            Four things, handled by one person, so they fit together.
+            Four disciplines, one roof, so they fit together by default.
           </h1>
         </Reveal>
 

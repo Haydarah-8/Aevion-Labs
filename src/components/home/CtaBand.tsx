@@ -10,14 +10,14 @@ export function CtaBand() {
           <p className="tag">07 · Next</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="display mt-8 max-w-[16ch]">Tell me what you are building.</h2>
+          <h2 className="display mt-8 max-w-[16ch]">Tell us what you are building.</h2>
         </Reveal>
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
-            Send a note with what you are working on, roughly when you need it, and where
-            you are starting from. I read every enquiry myself and reply within two working
-            days with honest next steps, including if I think you would be better served
-            elsewhere.
+            Send what you are working on, roughly when you need it, and where you are
+            starting from. You get a reply within two working days with honest next steps,
+            an idea of cost, and a straight answer if the work would be better done
+            somewhere else. No pitch deck, no discovery fee, no sequence of emails.
           </p>
         </Reveal>
         <Reveal delay={0.18}>

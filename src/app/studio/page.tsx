@@ -7,7 +7,7 @@ import { IMAGES } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Studio",
   description:
-    "Aevion Labs is one developer who designs and builds the whole thing, because most web projects break at the handoff.",
+    "One studio for strategy, design and engineering, because most web projects break at the handoff rather than at the build.",
 };
 
 export default function StudioPage() {
@@ -19,7 +19,7 @@ export default function StudioPage() {
         </Reveal>
         <Reveal delay={0.06}>
           <h1 className="display mt-6 max-w-[20ch]">
-            One developer who designs and builds the whole thing.
+            Most web projects break at the handoff. This one has none.
           </h1>
         </Reveal>
 
@@ -27,23 +27,23 @@ export default function StudioPage() {
           <div className="prose-measure space-y-6 sm:col-span-7">
             <Reveal delay={0.12}>
               <p className="lede">
-                I started Aevion Labs after watching too many sites get designed by one
-                team, built by another, and launched slower, uglier and harder to edit than
-                anyone intended.
+                Aevion Labs exists because too many sites get designed by one team, built
+                by another, and launched slower, uglier and harder to edit than anyone
+                intended. Every one of those failures happens in the gap between people.
               </p>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="text-dim">
-                I am a solo developer, and that is deliberate. It keeps the work direct,
-                the costs honest, and it means nothing is lost between the person who
-                promised something and the person who has to build it.
+                So there is no gap. The same hands take a project from the first call to
+                the deploy, which keeps the work direct, the costs honest, and the intent
+                intact from the thing that was promised to the thing that ships.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-dim">
-                I take a small number of projects at a time, mostly for founders and small
-                teams who need a site that earns its keep rather than one that just looks
-                current. If that is not you, I will say so on the first call.
+                Two projects run at a time, no more, mostly for founders and small teams
+                who need a site that earns its keep rather than one that merely looks
+                current. If that is not the brief, you will hear so on the first call.
               </p>
             </Reveal>
           </div>
@@ -57,8 +57,8 @@ export default function StudioPage() {
             </Reveal>
             <Reveal delay={0.18}>
               <div className="border-t border-rule pt-4">
-                <dt className="tag">Size</dt>
-                <dd className="mt-1">One person</dd>
+                <dt className="tag">Model</dt>
+                <dd className="mt-1">One studio, no subcontractors</dd>
               </div>
             </Reveal>
             <Reveal delay={0.22}>

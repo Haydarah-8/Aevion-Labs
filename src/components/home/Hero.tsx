@@ -3,10 +3,10 @@ import { Reveal } from "@/components/motion/Reveal";
 import { SITE } from "@/lib/site";
 
 const FACTS = [
-  { k: "Discipline", v: "Design and build" },
-  { k: "Team", v: "One person, end to end" },
+  { k: "Discipline", v: "Strategy, design, build" },
+  { k: "Access", v: "Direct to who builds it" },
   { k: "Typical site", v: "Four to eight weeks" },
-  { k: "Availability", v: "Taking work now" },
+  { k: "Capacity", v: "Two projects at a time" },
 ];
 
 /**
@@ -27,9 +27,9 @@ export function Hero() {
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
-            I design and build fast, clear websites for founders and small teams. One
-            person, start to finish, so nothing is lost between the person who promised it
-            and the person who has to build it.
+            Strategy, interface and engineering under one roof, so nothing is lost in a
+            handoff and nobody has to wait three weeks for a headline change. Built to be
+            fast on the first visit and easy to change on the hundredth.
           </p>
         </Reveal>
 
@@ -39,7 +39,7 @@ export function Hero() {
               Start a project
             </Link>
             <Link href="/studio" className="btn btn-ghost">
-              How I work
+              How it works
             </Link>
           </div>
         </Reveal>

@@ -36,7 +36,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 26, color: "#6e6d68" }}>
-          <span>One person, start to finish.</span>
+          <span>Strategy, design and engineering under one roof.</span>
           <span style={{ color: "#0b0b0a" }}>aevionlabs.com</span>
         </div>
       </div>
