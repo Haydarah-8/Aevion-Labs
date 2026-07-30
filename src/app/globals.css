@@ -199,6 +199,15 @@ body {
     opacity: 0.86;
   }
 
+  /* The primary action, and the only element on any page with this weight.
+     Isolation effect: if a second control looks like this one, neither reads
+     as the thing to do next. */
+  .btn-lg {
+    padding: 1.05em 2em;
+    font-size: var(--step-1);
+    letter-spacing: -0.01em;
+  }
+
   .btn-ghost {
     background: transparent;
     color: var(--ink);

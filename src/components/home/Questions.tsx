@@ -33,11 +33,11 @@ export function Questions() {
     <section className="section border-t border-rule bg-sheet">
       <div className="shell">
         <Reveal>
-          <p className="tag">06 · Before you ask</p>
+          <p className="tag">06 · before you ask</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[20ch]">
-            The things worth knowing before you send anything.
+            the things worth knowing before you send anything.
           </h2>
         </Reveal>
 

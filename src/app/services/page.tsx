@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { SERVICES } from "@/lib/services";
+import { CTA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -112,9 +113,7 @@ export default function ServicesPage() {
           </dl>
           <Reveal delay={0.2}>
             <div className="mt-14">
-              <Link href="/contact" className="btn">
-                Start a project
-              </Link>
+              <Link href="/contact" className="btn">{CTA}</Link>
             </div>
           </Reveal>
         </div>

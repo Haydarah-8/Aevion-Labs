@@ -28,12 +28,11 @@ export function Standard() {
     <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="tag">04 · The standard</p>
+          <p className="tag">04 · the standard</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[26ch]">
-            Four commitments, in writing. The things any studio should be willing to put
-            in front of you before you sign anything.
+            four commitments, in writing, before you sign anything.
           </h2>
         </Reveal>
 

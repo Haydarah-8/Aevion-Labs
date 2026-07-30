@@ -33,20 +33,19 @@ export function TheWork() {
     <section className="section border-t border-rule" id="work">
       <div className="shell">
         <Reveal>
-          <p className="tag">05 · Proof</p>
+          <p className="tag">05 · proof</p>
         </Reveal>
 
         <RevealLines
-          lines={["The case study is", "the page you are on."]}
+          lines={["the case study is", "the page you are on."]}
           className="display mt-8 max-w-[20ch]"
           delay={0.06}
         />
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
-            Portfolios ask you to trust the screenshots. There is a better test available:
-            everything this studio claims about speed, clarity and craft is testable from
-            where you are standing, without taking anyone&rsquo;s word for it.
+            Portfolios ask you to trust the screenshots. Everything claimed here is
+            testable from where you are standing.
           </p>
         </Reveal>
 

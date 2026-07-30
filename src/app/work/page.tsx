@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
+import { CTA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -155,9 +156,7 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={0.14}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn">
-                Start a project
-              </Link>
+              <Link href="/contact" className="btn">{CTA}</Link>
               <Link href="/services" className="btn btn-ghost">
                 What that covers
               </Link>

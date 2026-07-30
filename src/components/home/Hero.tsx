@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
+import { CTA } from "@/lib/site";
 
 /* Authored line breaks: a splitting library rewrites the markup it is given,
    which is how a heading ends up nested inside itself. */
-const HEADLINE = ["Websites, apps and brands", "built like they matter."];
+const HEADLINE = ["websites, apps and brands", "built like they matter."];
 
 const FACTS = [
   { k: "Discipline", v: "Strategy, design, build" },
@@ -33,19 +34,16 @@ export function Hero() {
 
         <Reveal delay={0.12}>
           <p className="lede prose-measure mt-8">
-            Strategy, interface and engineering under one roof, so nothing is lost in a
-            handoff and nobody has to wait three weeks for a headline change. Built to be
-            fast on the first visit and easy to change on the hundredth.
+            Strategy, interface and engineering under one roof. Fast on the first visit,
+            easy to change on the hundredth.
           </p>
         </Reveal>
 
         <Reveal delay={0.18}>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn">
-              Start a project
-            </Link>
-            <Link href="/studio" className="btn btn-ghost">
-              How it works
+          <div className="mt-12 flex flex-wrap items-center gap-8">
+            <Link href="/contact" className="btn btn-lg">{CTA}</Link>
+            <Link href="/work" className="link text-dim">
+              See the standard first
             </Link>
           </div>
         </Reveal>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
+import { CTA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -183,9 +184,7 @@ export default function StudioPage() {
 
         <Reveal delay={0.28}>
           <div className="mt-24 border-t border-rule pt-14">
-            <Link href="/contact" className="btn">
-              Start a project
-            </Link>
+            <Link href="/contact" className="btn">{CTA}</Link>
           </div>
         </Reveal>
       </div>

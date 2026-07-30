@@ -98,14 +98,14 @@ export function LiveMetrics() {
       <div className="shell">
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-4">
-            <p className="tag">01 · Measured, not claimed</p>
-            <p className="tag">Read from your browser just now</p>
+            <p className="tag">01 · measured, not claimed</p>
+            <p className="tag">read from your browser just now</p>
           </div>
         </Reveal>
 
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[24ch]">
-            Every agency says they build fast sites. Here are this one&rsquo;s numbers.
+            every agency says they build fast sites. here are this one&rsquo;s numbers.
           </h2>
         </Reveal>
 
@@ -130,12 +130,8 @@ export function LiveMetrics() {
 
         <Reveal delay={0.3}>
           <p className="prose-measure mt-8 text-[0.95rem] text-dim">
-            Measured at the load event, so it is what this page cost to show you rather
-            than what it weighs in total: pictures further down arrive only if you scroll
-            that far. No third party scripts, no tracking, no font served from someone
-            else&rsquo;s domain. The budget is published so it can be held against me, and
-            the readout comes from the Performance API rather than a screenshot taken on a
-            good day.
+            Read from the Performance API on this visit, not screenshotted on a good day.
+            No third party scripts, no tracking, no font from someone else&rsquo;s domain.
           </p>
         </Reveal>
       </div>

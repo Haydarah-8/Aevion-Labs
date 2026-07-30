@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV, SITE } from "@/lib/site";
+import { CTA, NAV, SITE } from "@/lib/site";
 
 /**
  * One ruled bar, per BLUEPRINT rule 4. Sticky rather than fixed so it can never
@@ -42,9 +42,7 @@ export function SiteNav() {
             })}
           </ul>
 
-          <Link href="/contact" className="btn px-5 py-3 text-[0.85rem] uppercase tracking-[0.1em]">
-            Start a project
-          </Link>
+          <Link href="/contact" className="btn px-5 py-3 text-[0.85rem] uppercase tracking-[0.1em]">{CTA}</Link>
         </div>
       </nav>
 

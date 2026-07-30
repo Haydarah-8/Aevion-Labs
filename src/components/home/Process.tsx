@@ -14,11 +14,11 @@ export function Process() {
     <section className="section border-t border-rule bg-sheet">
       <div className="shell">
         <Reveal>
-          <p className="tag">03 · How it works</p>
+          <p className="tag">03 · how it works</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="heading mt-8 max-w-[24ch]">
-            You always know which step we are on, and what happens next.
+            you always know which step we are on.
           </h2>
         </Reveal>
 

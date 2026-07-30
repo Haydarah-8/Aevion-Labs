@@ -5,6 +5,7 @@ import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { SERVICE_IMAGES } from "@/lib/images";
 import { SERVICES, SERVICE_SLUGS, getService } from "@/lib/services";
+import { CTA } from "@/lib/site";
 
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -133,9 +134,7 @@ export default async function ServiceDetail({
           </Reveal>
           <Reveal delay={0.14}>
             <div className="mt-12 flex flex-wrap items-center gap-6">
-              <Link href="/contact" className="btn">
-                Start a project
-              </Link>
+              <Link href="/contact" className="btn">{CTA}</Link>
               <Link href="/work" className="link">
                 See the standard it ships against
               </Link>
