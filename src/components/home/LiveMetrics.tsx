@@ -114,7 +114,7 @@ export function LiveMetrics() {
             <Reveal key={c.label} delay={0.1 + i * 0.06}>
               <div className="h-full bg-paper p-6 sm:p-8">
                 <dt className="tag">{c.label}</dt>
-                <dd className="display mt-4 tabular-nums">
+                <dd className="display num mt-4">
                   <Odometer key={c.value} value={c.value} />
                 </dd>
                 <p className="mt-3 text-[0.9rem] text-dim">

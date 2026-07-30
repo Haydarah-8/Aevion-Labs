@@ -99,7 +99,7 @@ export default function WorkPage() {
             {NUMBERS.map((x, i) => (
               <Reveal key={x.k} delay={0.05 * i}>
                 <div>
-                  <dd className="display tabular-nums">{x.v}</dd>
+                  <dd className="display num">{x.v}</dd>
                   <dt className="tag mt-3">{x.k}</dt>
                   <p className="mt-1 text-[0.9rem] text-dim">{x.n}</p>
                 </div>

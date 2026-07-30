@@ -21,6 +21,12 @@
   --step-3: clamp(2.5rem, 3.4vw + 1.6rem, 4.5rem);
   --step-4: clamp(3.25rem, 7vw + 1rem, 8rem);
 
+  /* Labels, indices and measurements are set in the system mono. It costs
+     nothing to download, and the contrast between a grotesk for language and a
+     mono for data is what makes a studio read as technical rather than as a
+     brochure. */
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --shell: 78rem;
 }
@@ -33,6 +39,7 @@
   --color-rule: var(--rule);
   --color-rule-soft: var(--rule-soft);
   --font-sans: var(--font-grotesk), "Inter Tight", system-ui, sans-serif;
+  --font-mono: var(--mono);
 }
 
 html {
@@ -109,25 +116,34 @@ body {
 
   /* Section label: "01 · The promise". Middle dot, never an em dash. */
   .tag {
-    font-size: var(--step--1);
-    letter-spacing: 0.14em;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--dim);
-    font-weight: 500;
+    font-weight: 400;
+  }
+
+  /* Measurements and indices. Tabular so a changing number never reflows the
+     line it sits on. */
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
 
   .display {
     font-size: var(--step-3);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
+    line-height: 1.0;
+    letter-spacing: -0.032em;
     font-weight: 500;
     text-wrap: balance;
   }
 
   .display-xl {
     font-size: var(--step-4);
-    line-height: 0.95;
-    letter-spacing: -0.035em;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
     font-weight: 500;
     text-wrap: balance;
   }
@@ -300,8 +316,26 @@ body {
     }
   }
 
+  /* Not a dark theme (BLUEPRINT rule 1 stands: no toggle, no prefers-color-scheme
+     branching). One inverted surface, used as punctuation, so the page has a
+     beat instead of one continuous tone. */
+  .invert {
+    --paper: #0b0b0a;
+    --sheet: #16161a;
+    --ink: #fffefb;
+    --dim: #8d8c87;
+    --rule: rgba(255, 254, 251, 0.18);
+    --rule-soft: rgba(255, 254, 251, 0.09);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
   .section {
     padding-block: clamp(4rem, 9vw, 8rem);
+  }
+
+  .section-lg {
+    padding-block: clamp(6rem, 14vw, 12rem);
   }
 }
 
