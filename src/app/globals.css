@@ -88,6 +88,25 @@ body {
     padding-inline: var(--gutter);
   }
 
+  /* The mark is set, never drawn: no glyph, no icon, per BLUEPRINT rule 5.
+     All caps with open tracking so it reads as a mark rather than as a word. */
+  .wordmark {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+  }
+
   /* Section label: "01 · The promise". Middle dot, never an em dash. */
   .tag {
     font-size: var(--step--1);
@@ -283,6 +302,36 @@ body {
   compositor runs it. Browsers without support get a static strip, which is a
   perfectly good strip.
 */
+/*
+  Reading progress, welded to the underside of the nav. Same trick as the band:
+  the scroll position is the timeline, so nothing measures anything in JS.
+  Without support it simply never appears, which is the correct fallback.
+*/
+.scroll-progress {
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes scroll-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
 .band-viewport {
   overflow: clip;
   -webkit-mask-image: linear-gradient(90deg, #0000, #000 7%, #000 93%, #0000);
@@ -340,6 +389,13 @@ body {
   .band-track {
     animation: none !important;
     transform: translateX(-2%) !important;
+  }
+
+  /* The global rule below forces every animation to 0.01ms, which would drive a
+     scroll-linked animation straight to its end state: a permanently full
+     progress bar. Remove it instead. */
+  .scroll-progress {
+    display: none !important;
   }
 
   *,

@@ -10,6 +10,30 @@ export const metadata: Metadata = {
     "One studio for strategy, design and engineering, because most web projects break at the handoff rather than at the build.",
 };
 
+/* Saying plainly what a studio will not take on is rarer than another list of
+   what it will, and it reads as confidence rather than as a limitation. */
+const NOT_THIS = [
+  { n: "01", name: "Templates dressed up", text: "No theme bought, recoloured and sold on as bespoke. If a template is genuinely the right answer for your budget, you will be told to buy one and shown which." },
+  { n: "02", name: "Design by committee", text: "One decision maker on your side. Work reviewed by six people arrives back as an average of six opinions and pleases none of them." },
+  { n: "03", name: "Rescue jobs mid flight", text: "Taking over somebody else's half-built project usually costs more than starting again and never satisfies anyone." },
+  { n: "04", name: "Lock-in of any kind", text: "No proprietary CMS, no hosting you cannot leave, no retainer required to keep the lights on." },
+];
+
+const STACK = [
+  { k: "Framework", v: "Next.js, React, TypeScript" },
+  { k: "Styling", v: "Tailwind, design tokens" },
+  { k: "Content", v: "Headless CMS, your account" },
+  { k: "Hosting", v: "Vercel or your own infrastructure" },
+  { k: "Payments", v: "Stripe" },
+  { k: "Analytics", v: "Privacy first, or none at all" },
+];
+
+const WEEK = [
+  { d: "Monday", t: "Priorities for the week agreed in writing. Ten minutes, not a meeting." },
+  { d: "Midweek", t: "Build continues against them. Questions go out as they come up rather than being saved for a call." },
+  { d: "Friday", t: "A working link, not a screenshot. You click through what changed and say what is wrong." },
+];
+
 export default function StudioPage() {
   return (
     <main id="main" className="section">
@@ -81,8 +105,84 @@ export default function StudioPage() {
           />
         </Reveal>
 
+        {/* ——— what the studio turns down ——— */}
+        <div className="mt-28 border-t border-rule pt-14">
+          <Reveal>
+            <p className="tag">01 · What we do not do</p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h2 className="heading mt-8 max-w-[24ch]">
+              Four kinds of work that go somewhere else.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            {NOT_THIS.map((x, i) => (
+              <Reveal key={x.n} delay={0.05 * i}>
+                <div className="border-t border-rule pt-6">
+                  <span className="tag">{x.n}</span>
+                  <h3 className="mt-3 text-[1.35rem] font-medium leading-tight">{x.name}</h3>
+                  <p className="mt-3 text-dim">{x.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* ——— the week, so nobody wonders what is happening ——— */}
+        <div className="mt-28 border-t border-rule pt-14">
+          <Reveal>
+            <p className="tag">02 · How a week runs</p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h2 className="heading mt-8 max-w-[26ch]">
+              You are never more than five days from seeing something real.
+            </h2>
+          </Reveal>
+          <ol className="mt-12 grid gap-px border border-rule bg-rule sm:grid-cols-3">
+            {WEEK.map((w, i) => (
+              <li key={w.d} className="bg-paper">
+                <Reveal delay={0.05 * i}>
+                  <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
+                    <span className="tag">{w.d}</span>
+                    <p className="text-[1.02rem]">{w.t}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* ——— the tools, named ——— */}
+        <div className="mt-28 border-t border-rule pt-14">
+          <Reveal>
+            <p className="tag">03 · What it is built with</p>
+          </Reveal>
+          <Reveal delay={0.04}>
+            <h2 className="heading mt-8 max-w-[24ch]">
+              Boring tools, chosen so anyone can pick this up.
+            </h2>
+          </Reveal>
+          <dl className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+            {STACK.map((x, i) => (
+              <Reveal key={x.k} delay={0.04 * i}>
+                <div className="flex items-baseline justify-between gap-6 border-b border-rule pb-3">
+                  <dt className="tag">{x.k}</dt>
+                  <dd className="text-right text-[1.02rem]">{x.v}</dd>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
+          <Reveal delay={0.24}>
+            <p className="prose-measure mt-8 text-[0.95rem] text-dim">
+              Boring on purpose. Every one of these is something another developer can pick
+              up without a handover call, which matters more than whatever is fashionable
+              this year.
+            </p>
+          </Reveal>
+        </div>
+
         <Reveal delay={0.28}>
-          <div className="mt-16">
+          <div className="mt-24 border-t border-rule pt-14">
             <Link href="/contact" className="btn">
               Start a project
             </Link>
