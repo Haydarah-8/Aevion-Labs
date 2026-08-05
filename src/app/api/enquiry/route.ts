@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { SITE } from "@/lib/site";
 
 /**
  * Enquiry endpoint.
@@ -44,8 +45,8 @@ export async function POST(req: Request) {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: "Aevion Labs <hello@theaevionlabs.com>",
-      to: ["hello@theaevionlabs.com"],
+      from: SITE.name + " <" + SITE.email + ">",
+      to: [SITE.email],
       reply_to: email,
       subject: `Enquiry from ${name}`,
       text: `${name} <${email}>\n\n${brief}`,

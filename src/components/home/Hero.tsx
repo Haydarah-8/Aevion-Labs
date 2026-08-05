@@ -4,7 +4,7 @@ import { CTA } from "@/lib/site";
 
 /* Authored line breaks: a splitting library rewrites the markup it is given,
    which is how a heading ends up nested inside itself. */
-const HEADLINE = ["Websites, apps and brands", "built like they matter."];
+const HEADLINE = ["A website that", "earns its place."];
 
 /**
  * Centred, and almost empty. Everything above the fold is one eyebrow, one
@@ -30,8 +30,8 @@ export function Hero() {
 
         <Reveal delay={0.14}>
           <p className="lede measure mt-7">
-            Strategy, interface and engineering under one roof. Fast on the first visit,
-            easy to change on the hundredth.
+            Fast to load. Clear to read. Easy to change yourself. Built by the person you
+            actually speak to.
           </p>
         </Reveal>
 
@@ -40,8 +40,8 @@ export function Hero() {
             <Link href="/contact" className="btn btn-lg">
               {CTA}
             </Link>
-            <Link href="/work" className="link-more">
-              See the standard first
+            <Link href="/review" className="link-more">
+              Get a free review of your site
             </Link>
           </div>
         </Reveal>

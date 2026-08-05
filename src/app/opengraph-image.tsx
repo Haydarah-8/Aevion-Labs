@@ -37,7 +37,7 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 26, color: "#6e6d68" }}>
           <span>Strategy, design and engineering under one roof.</span>
-          <span style={{ color: "#0b0b0a" }}>aevionlabs.com</span>
+          <span style={{ color: "#0b0b0a" }}>{SITE.url.replace("https://", "")}</span>
         </div>
       </div>
     ),

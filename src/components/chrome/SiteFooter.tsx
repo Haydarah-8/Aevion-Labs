@@ -32,6 +32,11 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
+                <Link href="/review" className="text-dim transition-colors hover:text-ink">
+                  Free site review
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-dim transition-colors hover:text-ink">
                   Contact
                 </Link>

@@ -4,7 +4,7 @@
  */
 export const SITE = {
   name: "Aevion Labs",
-  url: "https://aevionlabs.com",
+  url: "https://theaevionlabs.com",
   tagline: "Websites, apps and brands built like they matter.",
   email: "hello@theaevionlabs.com",
   general: "contact@theaevionlabs.com",

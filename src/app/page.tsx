@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { Recognition } from "@/components/home/Recognition";
 import { LiveMetrics } from "@/components/home/LiveMetrics";
 import { Services } from "@/components/home/Services";
 import { Process } from "@/components/home/Process";
@@ -17,6 +18,7 @@ export default function HomePage() {
   return (
     <main id="main">
       <Hero />
+      <Recognition />
       <LiveMetrics />
       <Services />
       <Process />

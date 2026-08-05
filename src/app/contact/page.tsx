@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { ContactForm } from "@/components/chrome/ContactForm";
 import { SITE } from "@/lib/site";
@@ -36,6 +37,9 @@ export default function ContactPage() {
               </p>
             </Reveal>
             <Reveal delay={0.18}>
+              <p className="body-dim mt-6">
+                Not ready to talk? <Link href="/review" className="link-under text-ink">Get a free review of your current site</Link> instead.
+              </p>
               <p className="mt-8">
                 <a href={`mailto:${SITE.email}`} className="link-more">
                   {SITE.email}

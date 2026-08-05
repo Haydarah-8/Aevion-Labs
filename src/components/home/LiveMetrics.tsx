@@ -98,11 +98,11 @@ export function LiveMetrics() {
           <p className="eyebrow text-center">Measured, not claimed</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="display measure mt-6">Every agency says they build fast sites.</h2>
+          <h2 className="display measure mt-6">Everyone says they build fast sites.</h2>
         </Reveal>
         <Reveal delay={0.12}>
           <p className="lede measure mt-6">
-            Here are this one&rsquo;s numbers, read from your browser a moment ago.
+            These came from your browser a moment ago. Not a screenshot.
           </p>
         </Reveal>
 

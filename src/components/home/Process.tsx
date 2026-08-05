@@ -17,7 +17,7 @@ export function Process() {
           <p className="eyebrow text-center">How it works</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="display measure mt-6">You always know which step we are on.</h2>
+          <h2 className="display measure mt-6">You are never wondering where it is up to.</h2>
         </Reveal>
 
         <ol className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

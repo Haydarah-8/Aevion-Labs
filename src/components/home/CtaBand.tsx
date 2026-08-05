@@ -27,8 +27,8 @@ export function CtaBand() {
 
         <Reveal delay={0.14}>
           <p className="lede measure mt-7">
-            A reply in two working days with honest next steps and an idea of cost. No
-            deck, no discovery fee, no sequence of emails.
+            Two working days to a reply, with honest next steps and an idea of cost. No
+            deck. No discovery fee. No sequence of emails.
           </p>
         </Reveal>
 

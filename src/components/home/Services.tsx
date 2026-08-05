@@ -21,12 +21,12 @@ export function Services() {
           <p className="eyebrow text-center">What we build</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="display measure mt-6">Four disciplines, one roof.</h2>
+          <h2 className="display measure mt-6">Everything under one roof.</h2>
         </Reveal>
         <Reveal delay={0.12}>
           <p className="lede measure mt-6">
             Most projects need two or three at once. Buying them separately is how a site
-            ends up designed against one set of assumptions and built against another.
+            gets designed against one set of assumptions and built against another.
           </p>
         </Reveal>
 
