@@ -30,7 +30,7 @@ export default function ServicesPage() {
     <main id="main" className="section">
       <div className="shell">
         <Reveal>
-          <p className="tag">Services</p>
+          <p className="eyebrow">Services</p>
         </Reveal>
         <RevealLines
           as="h1"
@@ -39,7 +39,7 @@ export default function ServicesPage() {
           delay={0.06}
         />
         <Reveal delay={0.12}>
-          <p className="lede prose-measure mt-8">
+          <p className="lede prose mt-8">
             Most projects need two or three of these at once. Buying them separately is
             how a site ends up designed against one set of assumptions and built against
             another.
@@ -56,9 +56,9 @@ export default function ServicesPage() {
                 >
                   <div className="sm:col-span-5">
                     <h2 className="heading">{s.name}</h2>
-                    <p className="tag mt-3">{s.timeline}</p>
+                    <p className="eyebrow mt-3">{s.timeline}</p>
                   </div>
-                  <p className="prose-measure text-dim sm:col-span-6">{s.summary}</p>
+                  <p className="prose text-dim sm:col-span-6">{s.summary}</p>
                   <span
                     aria-hidden="true"
                     className="text-dim transition-transform group-hover:translate-x-1 sm:col-span-1 sm:justify-self-end"
@@ -74,7 +74,7 @@ export default function ServicesPage() {
         {/* the baseline: true of every engagement regardless of which one */}
         <div className="mt-24 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">Always included</p>
+            <p className="eyebrow">Always included</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="heading mt-8 max-w-[26ch]">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
               <li key={b.name} className="bg-paper">
                 <Reveal delay={0.04 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
-                    <span className="tag">{b.n}</span>
+                    <span className="eyebrow">{b.n}</span>
                     <h3 className="text-[1.25rem] font-medium leading-tight">{b.name}</h3>
                     <p className="text-[0.96rem] text-dim">{b.text}</p>
                   </div>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
         {/* how buying works, without a pricing page */}
         <div className="mt-24 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">How engagements work</p>
+            <p className="eyebrow">How engagements work</p>
           </Reveal>
           <dl className="mt-10 grid gap-10 sm:grid-cols-3">
             {TERMS.map((t, i) => (

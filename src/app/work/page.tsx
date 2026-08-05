@@ -69,7 +69,7 @@ export default function WorkPage() {
       <section className="section pb-0">
         <div className="shell">
           <Reveal>
-            <p className="tag">Case study · 2026</p>
+            <p className="eyebrow">Case study · 2026</p>
           </Reveal>
           <RevealLines
             as="h1"
@@ -78,7 +78,7 @@ export default function WorkPage() {
             delay={0.06}
           />
           <Reveal delay={0.12}>
-            <p className="lede prose-measure mt-8">
+            <p className="lede prose mt-8">
               Most portfolios ask you to take the screenshots on trust. This one does not
               need you to. Every decision below is visible in the thing you are reading it
               on, and every number is measurable from your own browser, right now.
@@ -100,7 +100,7 @@ export default function WorkPage() {
               <Reveal key={x.k} delay={0.05 * i}>
                 <div>
                   <dd className="display num">{x.v}</dd>
-                  <dt className="tag mt-3">{x.k}</dt>
+                  <dt className="eyebrow mt-3">{x.k}</dt>
                   <p className="mt-1 text-[0.9rem] text-dim">{x.n}</p>
                 </div>
               </Reveal>
@@ -112,7 +112,7 @@ export default function WorkPage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="tag">The decisions</p>
+            <p className="eyebrow">The decisions</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="heading mt-8 max-w-[26ch]">
@@ -125,7 +125,7 @@ export default function WorkPage() {
               <li key={d.n}>
                 <Reveal delay={0.04 * i}>
                   <div className="grid gap-4 border-b border-rule py-9 sm:grid-cols-12 sm:gap-6">
-                    <span className="tag sm:col-span-1">{d.n}</span>
+                    <span className="eyebrow sm:col-span-1">{d.n}</span>
                     <h3 className="text-[1.4rem] font-medium leading-tight sm:col-span-4">
                       {d.call}
                     </h3>
@@ -148,7 +148,7 @@ export default function WorkPage() {
             className="display max-w-[20ch]"
           />
           <Reveal delay={0.08}>
-            <p className="lede prose-measure mt-8">
+            <p className="lede prose mt-8">
               None of it is a premium tier or a stretch goal. It is simply what leaving the
               studio looks like. Bring a real problem to the first call and you will get a
               straight answer about whether it can be solved and what it takes.
@@ -157,7 +157,7 @@ export default function WorkPage() {
           <Reveal delay={0.14}>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/contact" className="btn">{CTA}</Link>
-              <Link href="/services" className="btn btn-ghost">
+              <Link href="/services" className="btn btn-quiet">
                 What that covers
               </Link>
             </div>

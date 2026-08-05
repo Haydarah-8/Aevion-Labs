@@ -11,7 +11,7 @@ const QA = [
   },
   {
     q: "What happens after launch?",
-    a: "You get a walkthrough of how to edit everything yourself. Keep me on a retainer for changes if it is useful, and if it is not, the site runs perfectly well without me.",
+    a: "You get a walkthrough of how to edit everything yourself. Keep us on a retainer for changes if it is useful, and if it is not, the site runs perfectly well without us.",
   },
   {
     q: "What happens if it goes wrong?",
@@ -24,37 +24,36 @@ const QA = [
 ];
 
 /**
- * Native `details` elements. Keyboard accessible, works without JavaScript, and
- * needs no accordion state machine. The old build shipped three different
- * hand rolled accordions.
+ * Native `details`. Keyboard operable, findable by browser search, works with
+ * scripting off, and there is no open-state machine to fall out of sync.
  */
 export function Questions() {
   return (
-    <section className="section border-t border-rule bg-sheet">
+    <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="tag">06 · before you ask</p>
+          <p className="eyebrow text-center">Before you ask</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="heading mt-8 max-w-[20ch]">
-            the things worth knowing before you send anything.
+          <h2 className="display measure mt-6">
+            The things worth knowing before you send anything.
           </h2>
         </Reveal>
 
-        <div className="mt-12 border-t border-rule">
+        <div className="mx-auto mt-16 max-w-3xl">
           {QA.map((item, i) => (
             <Reveal key={item.q} delay={0.04 * i}>
-              <details className="group border-b border-rule">
-                <summary className="flex cursor-pointer list-none items-baseline justify-between gap-6 py-6 text-[1.2rem] font-medium">
+              <details className="group border-b border-rule first:border-t">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[1.2rem] font-medium tracking-[-0.015em]">
                   {item.q}
                   <span
                     aria-hidden="true"
-                    className="shrink-0 text-dim transition-transform group-open:rotate-45"
+                    className="mt-0.5 shrink-0 text-[1.4rem] leading-none text-dim transition-transform duration-300 group-open:rotate-45"
                   >
                     +
                   </span>
                 </summary>
-                <p className="prose-measure pb-7 text-dim">{item.a}</p>
+                <p className="body-dim pb-7 pr-10">{item.a}</p>
               </details>
             </Reveal>
           ))}

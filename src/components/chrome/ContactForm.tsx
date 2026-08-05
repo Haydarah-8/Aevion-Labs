@@ -45,7 +45,7 @@ export function ContactForm() {
         <p className="heading">Got it.</p>
         <p className="mt-4 text-dim">
           You will get a reply within two working days. If it is urgent, email direct at{" "}
-          <a href={`mailto:${SITE.email}`} className="link text-ink">
+          <a href={`mailto:${SITE.email}`} className="link-more text-ink">
             {SITE.email}
           </a>
           .
@@ -63,7 +63,7 @@ export function ContactForm() {
       {error && (
         <p className="text-[0.95rem] text-ink" role="alert">
           {error} You can also email{" "}
-          <a href={`mailto:${SITE.email}`} className="link">
+          <a href={`mailto:${SITE.email}`} className="link-more">
             {SITE.email}
           </a>
           .
@@ -99,7 +99,7 @@ function Field({
 
   return (
     <div>
-      <label htmlFor={name} className="tag">
+      <label htmlFor={name} className="eyebrow">
         {label}
         {required && <span aria-hidden="true"> *</span>}
       </label>

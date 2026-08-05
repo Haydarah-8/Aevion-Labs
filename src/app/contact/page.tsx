@@ -23,13 +23,13 @@ export default function ContactPage() {
         <div className="grid gap-14 sm:grid-cols-12">
           <div className="sm:col-span-5">
             <Reveal>
-              <p className="tag">Contact</p>
+              <p className="eyebrow">Contact</p>
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="display mt-6 max-w-[14ch]">Tell us what you are building.</h1>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="lede prose-measure mt-8">
+              <p className="lede prose mt-8">
                 Three fields, and a reply within two working days with honest next steps
                 and an idea of cost. If the work would be better done somewhere else, you
                 will be told that instead.
@@ -37,7 +37,7 @@ export default function ContactPage() {
             </Reveal>
             <Reveal delay={0.18}>
               <p className="mt-8">
-                <a href={`mailto:${SITE.email}`} className="link">
+                <a href={`mailto:${SITE.email}`} className="link-more">
                   {SITE.email}
                 </a>
               </p>
@@ -53,7 +53,7 @@ export default function ContactPage() {
 
         <div className="mt-24 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">What happens next</p>
+            <p className="eyebrow">What happens next</p>
           </Reveal>
           <Reveal delay={0.04}>
             <h2 className="heading mt-6 max-w-[22ch]">Three steps, none of them a funnel.</h2>
@@ -63,7 +63,7 @@ export default function ContactPage() {
               <li key={x.n} className="bg-paper">
                 <Reveal delay={0.05 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
-                    <span className="tag">{x.n}</span>
+                    <span className="eyebrow">{x.n}</span>
                     <h3 className="text-[1.2rem] font-medium leading-tight">{x.t}</h3>
                     <p className="text-[0.96rem] text-dim">{x.d}</p>
                   </div>

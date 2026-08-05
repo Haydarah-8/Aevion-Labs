@@ -40,7 +40,7 @@ export default function StudioPage() {
     <main id="main" className="section">
       <div className="shell">
         <Reveal>
-          <p className="tag">Studio</p>
+          <p className="eyebrow">Studio</p>
         </Reveal>
         <RevealLines
           as="h1"
@@ -50,7 +50,7 @@ export default function StudioPage() {
         />
 
         <div className="mt-12 grid gap-10 sm:grid-cols-12">
-          <div className="prose-measure space-y-6 sm:col-span-7">
+          <div className="prose space-y-6 sm:col-span-7">
             <Reveal delay={0.12}>
               <p className="lede">
                 Aevion Labs exists because too many sites get designed by one team, built
@@ -77,19 +77,19 @@ export default function StudioPage() {
           <dl className="space-y-6 sm:col-span-4 sm:col-start-9">
             <Reveal delay={0.14}>
               <div className="border-t border-rule pt-4">
-                <dt className="tag">Founded</dt>
+                <dt className="eyebrow">Founded</dt>
                 <dd className="mt-1">2026</dd>
               </div>
             </Reveal>
             <Reveal delay={0.18}>
               <div className="border-t border-rule pt-4">
-                <dt className="tag">Model</dt>
+                <dt className="eyebrow">Model</dt>
                 <dd className="mt-1">One studio, no subcontractors</dd>
               </div>
             </Reveal>
             <Reveal delay={0.22}>
               <div className="border-t border-rule pt-4">
-                <dt className="tag">Stack</dt>
+                <dt className="eyebrow">Stack</dt>
                 <dd className="mt-1">Next.js, TypeScript, headless CMS</dd>
               </div>
             </Reveal>
@@ -109,7 +109,7 @@ export default function StudioPage() {
         {/* ——— what the studio turns down ——— */}
         <div className="mt-28 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">01 · What we do not do</p>
+            <p className="eyebrow">01 · What we do not do</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="heading mt-8 max-w-[24ch]">
@@ -120,7 +120,7 @@ export default function StudioPage() {
             {NOT_THIS.map((x, i) => (
               <Reveal key={x.n} delay={0.05 * i}>
                 <div className="border-t border-rule pt-6">
-                  <span className="tag">{x.n}</span>
+                  <span className="eyebrow">{x.n}</span>
                   <h3 className="mt-3 text-[1.35rem] font-medium leading-tight">{x.name}</h3>
                   <p className="mt-3 text-dim">{x.text}</p>
                 </div>
@@ -132,7 +132,7 @@ export default function StudioPage() {
         {/* ——— the week, so nobody wonders what is happening ——— */}
         <div className="mt-28 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">02 · How a week runs</p>
+            <p className="eyebrow">02 · How a week runs</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="heading mt-8 max-w-[26ch]">
@@ -144,7 +144,7 @@ export default function StudioPage() {
               <li key={w.d} className="bg-paper">
                 <Reveal delay={0.05 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
-                    <span className="tag">{w.d}</span>
+                    <span className="eyebrow">{w.d}</span>
                     <p className="text-[1.02rem]">{w.t}</p>
                   </div>
                 </Reveal>
@@ -156,7 +156,7 @@ export default function StudioPage() {
         {/* ——— the tools, named ——— */}
         <div className="mt-28 border-t border-rule pt-14">
           <Reveal>
-            <p className="tag">03 · What it is built with</p>
+            <p className="eyebrow">03 · What it is built with</p>
           </Reveal>
           <Reveal delay={0.04}>
             <h2 className="heading mt-8 max-w-[24ch]">
@@ -167,14 +167,14 @@ export default function StudioPage() {
             {STACK.map((x, i) => (
               <Reveal key={x.k} delay={0.04 * i}>
                 <div className="flex items-baseline justify-between gap-6 border-b border-rule pb-3">
-                  <dt className="tag">{x.k}</dt>
+                  <dt className="eyebrow">{x.k}</dt>
                   <dd className="text-right text-[1.02rem]">{x.v}</dd>
                 </div>
               </Reveal>
             ))}
           </dl>
           <Reveal delay={0.24}>
-            <p className="prose-measure mt-8 text-[0.95rem] text-dim">
+            <p className="prose mt-8 text-[0.95rem] text-dim">
               Boring on purpose. Every one of these is something another developer can pick
               up without a handover call, which matters more than whatever is fashionable
               this year.

@@ -39,11 +39,11 @@ export default async function ServiceDetail({
       <section className="section pb-0">
         <div className="shell">
           <Reveal>
-            <p className="tag">Services · {service.timeline}</p>
+            <p className="eyebrow">Services · {service.timeline}</p>
           </Reveal>
           <RevealLines as="h1" lines={[service.name]} className="display mt-6" delay={0.06} />
           <Reveal delay={0.12}>
-            <p className="lede prose-measure mt-8">{service.intro}</p>
+            <p className="lede prose mt-8">{service.intro}</p>
           </Reveal>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default async function ServiceDetail({
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="tag">01 · Signs this is the one</p>
+            <p className="eyebrow">01 · Signs this is the one</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="heading mt-8 max-w-[24ch]">
@@ -74,7 +74,7 @@ export default async function ServiceDetail({
               <li key={sign} className="bg-paper">
                 <Reveal delay={0.04 * i}>
                   <p className="flex gap-4 p-6 text-[1.05rem] sm:p-8">
-                    <span className="tag shrink-0 pt-1">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="eyebrow shrink-0 pt-1">{String(i + 1).padStart(2, "0")}</span>
                     {sign}
                   </p>
                 </Reveal>
@@ -88,7 +88,7 @@ export default async function ServiceDetail({
         <div className="shell grid gap-12 sm:grid-cols-12">
           <div className="sm:col-span-7">
             <Reveal>
-              <p className="tag">02 · What is included</p>
+              <p className="eyebrow">02 · What is included</p>
             </Reveal>
             <Reveal delay={0.04}>
               <h2 className="heading mt-6">The scope, in full</h2>
@@ -106,7 +106,7 @@ export default async function ServiceDetail({
               bullet of what is in it. Nobody gets surprised in week six. */}
           <div className="sm:col-span-4 sm:col-start-9">
             <Reveal delay={0.1}>
-              <p className="tag">03 · What is not</p>
+              <p className="eyebrow">03 · What is not</p>
             </Reveal>
             <Reveal delay={0.14}>
               <h2 className="mt-6 text-[1.3rem] font-medium leading-tight">
@@ -127,7 +127,7 @@ export default async function ServiceDetail({
       <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="tag">04 · What you end up with</p>
+            <p className="eyebrow">04 · What you end up with</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="display mt-8 max-w-[22ch]">{service.outcome}</h2>
@@ -135,7 +135,7 @@ export default async function ServiceDetail({
           <Reveal delay={0.14}>
             <div className="mt-12 flex flex-wrap items-center gap-6">
               <Link href="/contact" className="btn">{CTA}</Link>
-              <Link href="/work" className="link">
+              <Link href="/work" className="link-more">
                 See the standard it ships against
               </Link>
             </div>
@@ -146,7 +146,7 @@ export default async function ServiceDetail({
       <section className="section border-t border-rule">
         <div className="shell">
           <Reveal>
-            <p className="tag">Also built here</p>
+            <p className="eyebrow">Also built here</p>
           </Reveal>
           <Reveal delay={0.04}>
             <h2 className="heading mt-6">The other three</h2>

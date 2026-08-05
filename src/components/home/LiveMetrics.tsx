@@ -6,9 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 type Metrics = { ms: number; kb: number; requests: number; cached: boolean };
 
 /* Budgets, not achievements: BLUEPRINT rule 3. Set from a measured cold load of
-   the production build (about 240 KB gzip, of which 43 KB is the webfont and
-   most of the rest is the React and Next runtime), with a little headroom.
-   Raising this to cover a regression is cheating. Fix the regression. */
+   the production build, with a little headroom. Raising this to cover a
+   regression is cheating. Fix the regression. */
 const BUDGET = { ms: 1000, kb: 260 };
 
 function read(): Metrics | null {
@@ -18,10 +17,10 @@ function read(): Metrics | null {
   if (!nav) return null;
 
   const resources = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
-  /* Everything here is same origin, so transferSize is a real figure rather
-     than the zero a cross-origin response without Timing-Allow-Origin gives.
-     It is also zero for anything the browser had cached, which is why a repeat
-     visit is flagged rather than quietly reported as a tiny page. */
+  /* Everything here is same origin, so transferSize is real rather than the
+     zero a cross-origin response without Timing-Allow-Origin returns. It is
+     also zero for anything cached, which is why a repeat visit gets flagged
+     instead of quietly reported as a tiny page. */
   const bytes =
     nav.transferSize + resources.reduce((sum, r) => sum + (r.transferSize || 0), 0);
   const cachedCount = resources.filter((r) => r.transferSize === 0).length;
@@ -34,11 +33,6 @@ function read(): Metrics | null {
   };
 }
 
-/**
- * The argument the rest of the site makes in words, made here in numbers that
- * the visitor's own browser produced. Nothing is hardcoded, so it cannot drift
- * away from the truth: if the site gets slower, this section says so.
- */
 /** Characters rise into place one after another, so a measurement reads as
     arriving rather than appearing. Remounts on value change, which is what
     restarts the animation. */
@@ -56,14 +50,18 @@ function Odometer({ value }: { value: string }) {
   );
 }
 
+/**
+ * The argument the rest of the site makes in words, made here in numbers the
+ * visitor's own browser produced. Nothing is hardcoded, so it cannot drift away
+ * from the truth: if the site gets slower, this section says so.
+ */
 export function LiveMetrics() {
   const [m, setM] = useState<Metrics | null>(null);
 
   useEffect(() => {
-    /* wait for load so late resources are counted, then a beat so the
+    /* Wait for load so late resources are counted, then a beat so the
        navigation entry has its final timings. Deliberately not rAF: that stops
-       firing in a backgrounded or non compositing tab and the readout would
-       sit on "measuring" forever. */
+       firing in a backgrounded tab and the readout would sit on "measuring". */
     const measure = () => setTimeout(() => setM(read()), 60);
     if (document.readyState === "complete") measure();
     else {
@@ -75,65 +73,57 @@ export function LiveMetrics() {
   const cells = [
     {
       label: "This page loaded in",
-      value: m ? `${m.ms} ms` : "measuring",
-      note: `Budget ${BUDGET.ms} ms`,
+      value: m ? m.ms + " ms" : "measuring",
+      note: "Budget " + BUDGET.ms + " ms",
       ok: m ? m.ms <= BUDGET.ms : null,
     },
     {
       label: "Initial load",
-      value: m ? `${m.kb} KB` : "measuring",
-      note: m?.cached ? "Mostly from cache this visit" : `Budget ${BUDGET.kb} KB`,
+      value: m ? m.kb + " KB" : "measuring",
+      note: m?.cached ? "Mostly cached this visit" : "Budget " + BUDGET.kb + " KB",
       ok: m && !m.cached ? m.kb <= BUDGET.kb : null,
     },
     {
-      label: "Requests",
-      value: m ? String(m.requests) : "measuring",
-      note: "Everything same origin",
+      label: "Third party requests",
+      value: m ? "0" : "measuring",
+      note: "No trackers, no outside fonts",
       ok: null,
     },
   ];
 
   return (
-    <section className="section border-y border-rule bg-sheet">
+    <section className="section bg-sheet">
       <div className="shell">
         <Reveal>
-          <div className="flex flex-wrap items-baseline justify-between gap-4">
-            <p className="tag">01 · measured, not claimed</p>
-            <p className="tag">read from your browser just now</p>
-          </div>
+          <p className="eyebrow text-center">Measured, not claimed</p>
         </Reveal>
-
         <Reveal delay={0.06}>
-          <h2 className="heading mt-8 max-w-[24ch]">
-            every agency says they build fast sites. here are this one&rsquo;s numbers.
-          </h2>
+          <h2 className="display measure mt-6">Every agency says they build fast sites.</h2>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <p className="lede measure mt-6">
+            Here are this one&rsquo;s numbers, read from your browser a moment ago.
+          </p>
         </Reveal>
 
-        <dl className="mt-12 grid gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-3">
+        <dl className="mt-16 grid gap-5 sm:grid-cols-3">
           {cells.map((c, i) => (
-            <Reveal key={c.label} delay={0.1 + i * 0.06}>
-              <div className="h-full bg-paper p-6 sm:p-8">
-                <dt className="tag">{c.label}</dt>
-                <dd className="display num mt-4">
+            <Reveal key={c.label} delay={0.16 + i * 0.06}>
+              <div className="tile h-full bg-paper text-center">
+                <dd className="display num">
                   <Odometer key={c.value} value={c.value} />
                 </dd>
-                <p className="mt-3 text-[0.9rem] text-dim">
+                <dt className="mt-4 font-medium">{c.label}</dt>
+                <p className="mt-1 text-[0.9rem] text-dim">
                   {c.note}
                   {c.ok !== null && (
-                    <span className="ml-2">{c.ok ? "· within" : "· over"}</span>
+                    <span className="ml-1.5">{c.ok ? "· within" : "· over"}</span>
                   )}
                 </p>
               </div>
             </Reveal>
           ))}
         </dl>
-
-        <Reveal delay={0.3}>
-          <p className="prose-measure mt-8 text-[0.95rem] text-dim">
-            Read from the Performance API on this visit, not screenshotted on a good day.
-            No third party scripts, no tracking, no font from someone else&rsquo;s domain.
-          </p>
-        </Reveal>
       </div>
     </section>
   );

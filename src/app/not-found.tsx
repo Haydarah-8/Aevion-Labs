@@ -4,9 +4,9 @@ export default function NotFound() {
   return (
     <main id="main" className="section">
       <div className="shell">
-        <p className="tag">404</p>
+        <p className="eyebrow">404</p>
         <h1 className="display mt-6 max-w-[16ch]">That page is not here.</h1>
-        <p className="lede prose-measure mt-6">
+        <p className="lede prose mt-6">
           It may have moved, or the link may be wrong. Everything on the site is reachable
           from the homepage.
         </p>

@@ -46,7 +46,7 @@ export function Figure({
           {...(ratio ? { fill: true } : {})}
         />
       </InView>
-      {caption && <figcaption className="tag mt-3">{caption}</figcaption>}
+      {caption && <figcaption className="eyebrow mt-3">{caption}</figcaption>}
     </figure>
   );
 }
