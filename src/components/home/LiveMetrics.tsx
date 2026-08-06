@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
+import { BUDGET } from "@/lib/site";
 
 type Metrics = { ms: number; kb: number; requests: number; cached: boolean };
 
-/* Budgets, not achievements: BLUEPRINT rule 3. Set from a measured cold load of
-   the production build, with a little headroom. Raising this to cover a
-   regression is cheating. Fix the regression. */
-const BUDGET = { ms: 1000, kb: 260 };
+/* Budget lives in lib/site so the case study quotes the same number. */
 
 function read(): Metrics | null {
   const nav = performance.getEntriesByType("navigation")[0] as

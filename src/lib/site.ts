@@ -20,6 +20,18 @@ export const SITE = {
  */
 export const CTA = "Let's talk";
 
+/**
+ * The published speed budget, in one place.
+ *
+ * The homepage prints a live measurement against it and the case study quotes
+ * it as a commitment. They used to hold separate copies and drifted apart: the
+ * case study still said 240 KB while the page was measuring 256. A site whose
+ * argument is "measured, not claimed" cannot contradict itself about a number.
+ *
+ * Raising this to cover a regression is cheating. Fix the regression.
+ */
+export const BUDGET = { ms: 1000, kb: 260 } as const;
+
 /** Empty until the accounts exist. The footer hides the column rather than
     rendering links that go nowhere. */
 export const SOCIALS: { label: string; href: string }[] = [];

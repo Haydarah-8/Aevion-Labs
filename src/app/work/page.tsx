@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
-import { CTA } from "@/lib/site";
+import { BUDGET, CTA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -32,7 +32,7 @@ const DECISIONS = [
   },
   {
     n: "03",
-    call: "Seven sections, not seventy",
+    call: "Ten sections, not seventy",
     why: "Each section has to answer a question a buyer actually has. Anything that only answered 'what else could go here' was cut before it shipped.",
     result: "The page ends, and people reach the bottom of it.",
   },
@@ -40,7 +40,7 @@ const DECISIONS = [
     n: "04",
     call: "A published speed budget",
     why: "Anyone can call a site fast. A budget printed on the page and checked against a live measurement cannot be quietly missed.",
-    result: "260 KB and one second, read from the Performance API on every visit.",
+    result: BUDGET.kb + " KB and one second, read from the Performance API on every visit.",
   },
   {
     n: "05",
@@ -57,7 +57,7 @@ const DECISIONS = [
 ];
 
 const NUMBERS = [
-  { v: "240 KB", k: "Cold load, gzip", n: "43 KB of that is the typeface" },
+  { v: BUDGET.kb + " KB", k: "Published budget", n: "Measured live on the homepage, every visit" },
   { v: "0", k: "Third party requests", n: "No trackers, no fonts from elsewhere" },
   { v: "0", k: "Layout shift", n: "Every image reserves its space first" },
   { v: "100%", k: "Keyboard reachable", n: "Visible focus on every control" },
