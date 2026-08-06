@@ -18,18 +18,18 @@ export function Hero() {
     <section className="section-lg pt-24 sm:pt-32">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Web design and development</p>
+          <p className="eyebrow centred">Web design and development</p>
         </Reveal>
 
         <RevealLines
           as="h1"
           lines={HEADLINE}
-          className="display-xl measure-wide mt-7"
+          className="display-xl measure-wide centred mt-7"
           delay={0.06}
         />
 
         <Reveal delay={0.14}>
-          <p className="lede measure mt-7">
+          <p className="lede measure centred mt-7">
             Fast to load. Clear to read. Easy to change yourself. Built by the person you
             actually speak to.
           </p>

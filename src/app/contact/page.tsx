@@ -62,9 +62,9 @@ export default function ContactPage() {
           <Reveal delay={0.04}>
             <h2 className="heading mt-6 max-w-[22ch]">Three steps, none of them a funnel.</h2>
           </Reveal>
-          <ol className="mt-10 grid gap-px border border-rule bg-rule sm:grid-cols-3">
+          <ol className="mt-10 grid gap-4 sm:grid-cols-3">
             {NEXT.map((x, i) => (
-              <li key={x.n} className="bg-paper">
+              <li key={x.n}>
                 <Reveal delay={0.05 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
                     <span className="eyebrow">{x.n}</span>

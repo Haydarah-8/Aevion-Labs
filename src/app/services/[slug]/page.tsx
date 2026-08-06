@@ -69,9 +69,9 @@ export default async function ServiceDetail({
               Recognise two of these and we should talk.
             </h2>
           </Reveal>
-          <ul className="mt-12 grid gap-px border border-rule bg-rule sm:grid-cols-2">
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2">
             {service.signs.map((sign, i) => (
-              <li key={sign} className="bg-paper">
+              <li key={sign}>
                 <Reveal delay={0.04 * i}>
                   <p className="flex gap-4 p-6 text-[1.05rem] sm:p-8">
                     <span className="eyebrow shrink-0 pt-1">{String(i + 1).padStart(2, "0")}</span>
@@ -84,7 +84,7 @@ export default async function ServiceDetail({
         </div>
       </section>
 
-      <section className="section border-t border-rule bg-sheet">
+      <section className="section">
         <div className="shell grid gap-12 sm:grid-cols-12">
           <div className="sm:col-span-7">
             <Reveal>
@@ -143,7 +143,7 @@ export default async function ServiceDetail({
         </div>
       </section>
 
-      <section className="section border-t border-rule">
+      <section className="section">
         <div className="shell">
           <Reveal>
             <p className="eyebrow">Also built here</p>

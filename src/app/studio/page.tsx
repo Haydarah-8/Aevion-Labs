@@ -139,9 +139,9 @@ export default function StudioPage() {
               You are never more than five days from seeing something real.
             </h2>
           </Reveal>
-          <ol className="mt-12 grid gap-px border border-rule bg-rule sm:grid-cols-3">
+          <ol className="mt-12 grid gap-4 sm:grid-cols-3">
             {WEEK.map((w, i) => (
-              <li key={w.d} className="bg-paper">
+              <li key={w.d}>
                 <Reveal delay={0.05 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
                     <span className="eyebrow">{w.d}</span>

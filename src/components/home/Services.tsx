@@ -18,7 +18,7 @@ export function Services() {
     <section className="section" id="services">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">What we build</p>
+          <p className="eyebrow">What we build</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="display measure mt-6">Everything under one roof.</h2>

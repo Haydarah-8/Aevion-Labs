@@ -1,45 +1,48 @@
 @import "tailwindcss";
 
 /*
-  AEVION LABS · design system
+  AEVION LABS · ATMOSPHERE
 
-  Structure borrowed from the Apple marketing pages: centred composition, one
-  idea per screen, soft grey surfaces instead of ruled ones, rounded tiles, pill
-  actions, and considerably more air than feels comfortable at first.
+  A deliberate move away from the previous system, which was cards on grey.
+  Cards announce their own edges, and a page made of them reads as a dashboard
+  no matter how good the type is.
 
-  Palette deliberately not borrowed. Apple's blue on an agency site reads as a
-  knockoff; the spatial discipline is the part worth taking. So: near-black ink,
-  two greys, and one restrained accent used only where something is clickable.
+  Here nothing has a border and almost nothing has a fill. Structure comes from
+  type scale, space, and one hairline used sparingly. Where a group of content
+  needs to read as a group, it sits on a wash that fades out before it reaches
+  its own edge, so the block dissolves into the page instead of sitting on it.
+  Section boundaries are gradients rather than seams.
 
-  BLUEPRINT rules still hold. Light only, no toggle, no prefers-color-scheme
+  BLUEPRINT rules still hold: light only, no toggle, no prefers-color-scheme
   branching. Motion animates transform and opacity, and collapses at the foot of
   this file.
 */
 :root {
-  --paper: #ffffff;
-  --sheet: #f5f5f7;
-  --sheet-deep: #ebebef;
-  --ink: #1d1d1f;
-  --dim: #6e6e73;
-  --accent: #0a5fd0;
-  --rule: rgba(29, 29, 31, 0.1);
+  /* Warm, not clinical. Pure white with black on it is a spec sheet. */
+  --paper: #fcfcfa;
+  --sheet: #f4f3f0;
+  --sheet-deep: #eceae5;
+  --ink: #16161a;
+  --dim: #6a6a72;
+  --accent: #2f5ce0;
+  --rule: rgba(22, 22, 26, 0.08);
 
-  /* Apple's headlines are tighter than editorial display type: 48 to 80px set
-     semibold, not 120px set medium. Restraint is what reads as expensive. */
-  --step--1: 0.8125rem;
+  /* Bigger jumps than before. Contrast between sizes is what replaces the
+     boxes: if nothing is boxed, the type has to say what is important. */
+  --step--1: 0.78rem;
   --step-0: 1.0625rem;
-  --step-1: 1.3125rem;
-  --step-2: clamp(1.75rem, 2.2vw + 1.1rem, 2.75rem);
-  --step-3: clamp(2.25rem, 4vw + 1rem, 4rem);
-  --step-4: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  --step-1: 1.375rem;
+  --step-2: clamp(1.75rem, 2.4vw + 1.1rem, 3rem);
+  --step-3: clamp(2.4rem, 4.6vw + 1rem, 4.75rem);
+  --step-4: clamp(3rem, 8vw + 0.75rem, 7.5rem);
 
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
-  --radius: 18px;
-  --radius-lg: 28px;
+  --radius: 20px;
+  --radius-lg: 32px;
   --gutter: clamp(1.25rem, 5vw, 2.5rem);
-  --shell: 69rem;
-  --shell-wide: 84rem;
+  --shell: 72rem;
+  --shell-wide: 86rem;
 }
 
 @theme inline {
@@ -60,13 +63,24 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/*
+  The canvas. Two very soft washes bled in from opposite corners so the page has
+  atmosphere rather than a flat fill, and so no section needs a background of
+  its own to feel distinct. Kept under 4% opacity: this must never cost text
+  contrast.
+*/
 body {
-  background: var(--paper);
+  position: relative;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(80rem 50rem at 12% -10%, rgba(47, 92, 224, 0.05), transparent 60%),
+    radial-gradient(70rem 45rem at 92% 8%, rgba(196, 150, 96, 0.06), transparent 62%);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--step-0);
-  line-height: 1.5;
-  letter-spacing: -0.011em;
+  line-height: 1.55;
+  letter-spacing: -0.012em;
   -webkit-font-smoothing: antialiased;
   /* `clip`, never `hidden`: `hidden` makes body a scroll container and kills
      every position: sticky on the page. */
@@ -81,7 +95,7 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .skip-link {
@@ -113,79 +127,102 @@ body {
     padding-inline: var(--gutter);
   }
 
-  /* One idea per screen. These are larger than they look written down, and
-     that is the point: the space is the design. */
   .section {
-    padding-block: clamp(5rem, 11vw, 9rem);
+    position: relative;
+    padding-block: clamp(5.5rem, 12vw, 10rem);
   }
 
   .section-lg {
-    padding-block: clamp(7rem, 16vw, 13rem);
+    position: relative;
+    padding-block: clamp(8rem, 17vw, 14rem);
   }
 
-  /* Centred column for anything that reads as a statement. */
+  /* Left-aligned by default now. Everything centred reads as a landing page;
+     an asymmetric column reads as a studio with a point of view. Centring is
+     kept for the two moments that earn it, the hero and the close. */
   .measure {
-    max-width: 46rem;
-    margin-inline: auto;
-    text-align: center;
+    max-width: 44rem;
     text-wrap: balance;
   }
 
   .measure-wide {
-    max-width: 56rem;
-    margin-inline: auto;
-    text-align: center;
+    max-width: 54rem;
     text-wrap: balance;
   }
 
+  .centred {
+    margin-inline: auto;
+    text-align: center;
+  }
+
   .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
     font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--dim);
     font-weight: 400;
   }
 
+  /* A short rule before the label, so a section opens with a mark rather than
+     a box. This is the only decorative element in the system. */
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+  }
+
+  /* The leading rule marks the start of a section. Inside a block it is noise,
+     so a plain variant carries the same type without it. */
+  .eyebrow.centred::before,
+  .eyebrow.plain::before {
+    display: none;
+  }
+
   .num {
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
 
   .display-xl {
     font-size: var(--step-4);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.038em;
+    font-weight: 500;
     text-wrap: balance;
   }
 
   .display {
     font-size: var(--step-3);
-    line-height: 1.07;
-    letter-spacing: -0.025em;
-    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.032em;
+    font-weight: 500;
     text-wrap: balance;
   }
 
   .heading {
     font-size: var(--step-2);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 500;
     text-wrap: balance;
   }
 
   .lede {
     font-size: var(--step-1);
-    line-height: 1.42;
-    letter-spacing: -0.012em;
+    line-height: 1.5;
+    letter-spacing: -0.014em;
     color: var(--dim);
     text-wrap: pretty;
   }
 
   .prose {
-    max-width: 44rem;
+    max-width: 42rem;
     text-wrap: pretty;
   }
 
@@ -196,7 +233,6 @@ body {
 
   /* ——— actions ——— */
 
-  /* Pill, filled, and the only element on a page carrying this weight. */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -204,54 +240,57 @@ body {
     gap: 0.5em;
     background: var(--ink);
     color: var(--paper);
-    padding: 0.85em 1.6em;
+    padding: 0.9em 1.7em;
     border-radius: 999px;
     font-size: var(--step-0);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: -0.01em;
-    transition: opacity 0.22s ease, transform 0.22s ease;
+    letter-spacing: -0.012em;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
   }
 
   .btn:hover {
-    opacity: 0.85;
+    opacity: 0.88;
+    transform: translateY(-1px);
   }
 
   .btn:active {
-    transform: scale(0.98);
+    transform: translateY(0) scale(0.985);
   }
 
   .btn-lg {
-    padding: 1.05em 2.1em;
+    padding: 1.1em 2.3em;
     font-size: var(--step-1);
   }
 
   .btn-quiet {
-    background: var(--sheet-deep);
+    background: transparent;
     color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--rule);
   }
 
-  /* Secondary action: text and a chevron, in the accent. Never a second pill,
-     or neither one reads as the thing to do next. */
+  .btn-quiet:hover {
+    background: var(--sheet);
+    opacity: 1;
+  }
+
   .link-more {
     display: inline-flex;
     align-items: center;
-    gap: 0.28em;
+    gap: 0.3em;
     color: var(--accent);
     font-size: var(--step-0);
     font-weight: 450;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
   }
 
   .link-more::after {
-    content: "\203A";
-    font-size: 1.25em;
-    line-height: 0;
-    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    content: "\2192";
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .link-more:hover::after {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 
   .link-under {
@@ -266,26 +305,39 @@ body {
     text-decoration-color: currentColor;
   }
 
-  /* ——— surfaces ——— */
+  /* ——— blocks that dissolve ———
 
-  /* The tile is the workhorse: soft grey, generously rounded, no border. Rules
-     everywhere are what made the previous build read as a spreadsheet. */
+     The old `.tile` was a filled, rounded card. This keeps the name so the
+     components did not all need rewriting, but the behaviour is the opposite:
+     no border, no solid fill, and a wash that fades to nothing before it
+     reaches the bottom edge, so the block has no visible boundary at all. */
   .tile {
-    background: var(--sheet);
+    position: relative;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    padding-inline: 0;
     border-radius: var(--radius-lg);
-    padding: clamp(1.75rem, 3vw, 2.75rem);
+    background-image: linear-gradient(
+      180deg,
+      rgba(22, 22, 26, 0.035) 0%,
+      rgba(22, 22, 26, 0.012) 45%,
+      transparent 92%
+    );
   }
 
   .tile-tight {
-    padding: clamp(1.5rem, 2.4vw, 2rem);
+    padding-block: clamp(1.5rem, 2.4vw, 2rem);
   }
 
+  /* Only the interactive ones gain an edge, and only on hover, so the affordance
+     appears exactly when it is relevant. */
   .tile-link {
-    transition: background-color 0.3s ease;
+    padding-inline: clamp(1.25rem, 2.4vw, 2rem);
+    transition: background-color 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .tile-link:hover {
-    background: var(--sheet-deep);
+    background-color: rgba(22, 22, 26, 0.03);
+    transform: translateY(-2px);
   }
 
   .panel {
@@ -293,28 +345,51 @@ body {
     overflow: hidden;
   }
 
+  /* A hairline that fades out at both ends rather than stopping dead. */
+  .rule-soft {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(90deg, transparent, var(--rule) 12%, var(--rule) 88%, transparent);
+  }
+
   /* One inverted surface per page, used as punctuation. Not a dark theme:
      BLUEPRINT rule 1 stands. Redefining the tokens flips every child at once. */
   .invert {
-    --paper: #000000;
-    --sheet: #1d1d1f;
-    --sheet-deep: #2a2a2d;
-    --ink: #f5f5f7;
-    --dim: #a1a1a6;
-    --accent: #4a9bff;
-    --rule: rgba(245, 245, 247, 0.16);
-    background: var(--paper);
+    --paper: #101014;
+    --sheet: #1b1b21;
+    --sheet-deep: #24242c;
+    --ink: #f4f3f0;
+    --dim: #9a9aa4;
+    --accent: #7ea2ff;
+    --rule: rgba(244, 243, 240, 0.14);
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(60rem 40rem at 20% 0%, rgba(126, 162, 255, 0.12), transparent 62%),
+      radial-gradient(50rem 36rem at 88% 100%, rgba(196, 150, 96, 0.1), transparent 60%);
     color: var(--ink);
+  }
+
+  .invert .tile {
+    background-image: linear-gradient(
+      180deg,
+      rgba(244, 243, 240, 0.06) 0%,
+      rgba(244, 243, 240, 0.02) 45%,
+      transparent 92%
+    );
+  }
+
+  .invert .tile-link:hover {
+    background-color: rgba(244, 243, 240, 0.05);
   }
 
   /* ——— motion ——— */
 
   .reveal {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(20px);
     transition:
-      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
-      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
   }
 
   .reveal.is-in {
@@ -329,20 +404,20 @@ body {
 
   .line {
     display: block;
-    padding-bottom: 0.09em;
-    transform: translateY(112%);
-    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--line-delay, 0s);
+    padding-bottom: 0.1em;
+    transform: translateY(110%);
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) var(--line-delay, 0s);
   }
 
   .reveal-lines.is-in .line {
     transform: translateY(0);
   }
 
-  /* No `round` keyword in the inset: browsers will not interpolate it, so the
+  /* No `round` keyword in the inset: browsers will not interpolate it, so any
      corner radius lives on the wrapper instead. */
   .img-reveal {
     clip-path: inset(0 0 100% 0);
-    transition: clip-path 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .img-reveal.is-in {
@@ -350,8 +425,8 @@ body {
   }
 
   .img-reveal img {
-    transform: scale(1.12);
-    transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1.1);
+    transition: transform 1.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .img-reveal.is-in img {
@@ -371,7 +446,7 @@ body {
 
   .odo-ch {
     display: inline-block;
-    animation: odo-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: odo-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: calc(var(--i) * 45ms);
   }
 
@@ -385,7 +460,7 @@ body {
   }
 }
 
-/* ——— The talk dialog ———
+/* ——— the talk dialog ———
    Native <dialog>, so focus trapping, Escape, the top layer and the inert
    background are all the browser's job rather than ours. */
 .talk-dialog {
@@ -395,14 +470,15 @@ body {
   padding: 0;
   border: 0;
   border-radius: var(--radius-lg);
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: radial-gradient(40rem 24rem at 50% 0%, rgba(47, 92, 224, 0.06), transparent 65%);
   color: var(--ink);
   overflow: auto;
 }
 
 .talk-dialog::backdrop {
-  background: rgba(29, 29, 31, 0.4);
-  backdrop-filter: blur(6px);
+  background: rgba(22, 22, 26, 0.42);
+  backdrop-filter: blur(8px);
 }
 
 .talk-panel {
@@ -423,29 +499,26 @@ body {
   font-size: 1.4rem;
   line-height: 1;
   color: var(--dim);
-  background: var(--sheet);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .talk-close:hover {
-  background: var(--sheet-deep);
+  background: var(--sheet);
   color: var(--ink);
 }
 
-/* Opens with the same easing as everything else, and does not move at all for
-   anyone who has asked for less motion. */
 .talk-dialog[open] {
-  animation: talk-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: talk-in 0.34s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .talk-dialog[open]::backdrop {
-  animation: talk-fade 0.32s ease;
+  animation: talk-fade 0.34s ease;
 }
 
 @keyframes talk-in {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translateY(14px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -490,9 +563,11 @@ body {
 }
 
 /* The picture strip scrubs sideways off scroll position, run by the compositor.
-   Browsers without support get a static strip, which is a perfectly good strip. */
+   Masked at both ends so it dissolves into the page rather than being cut. */
 .band-viewport {
   overflow: clip;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 
 .band-track {
@@ -546,15 +621,15 @@ body {
     transform: translateX(-2%) !important;
   }
 
+  .talk-dialog[open],
+  .talk-dialog[open]::backdrop {
+    animation: none !important;
+  }
+
   /* The blanket rule below would drive a scroll-linked animation straight to
      its end state, leaving a permanently full progress bar. Remove it. */
   .scroll-progress {
     display: none !important;
-  }
-
-  .talk-dialog[open],
-  .talk-dialog[open]::backdrop {
-    animation: none !important;
   }
 
   *,

@@ -44,18 +44,18 @@ export default function ReviewPage() {
       <section className="section-lg pt-24 sm:pt-32">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow text-center">Free, no obligation</p>
+            <p className="eyebrow centred">Free, no obligation</p>
           </Reveal>
 
           <RevealLines
             as="h1"
             lines={["Send your website.", "Get an honest review back."]}
-            className="display-xl measure-wide mt-7"
+            className="display-xl measure-wide centred mt-7"
             delay={0.06}
           />
 
           <Reveal delay={0.14}>
-            <p className="lede measure mt-7">
+            <p className="lede measure centred mt-7">
               Three things holding your site back, in plain English, within two working
               days. No call, no meeting, nothing to prepare.
             </p>
@@ -63,10 +63,10 @@ export default function ReviewPage() {
         </div>
       </section>
 
-      <section className="section bg-sheet">
+      <section className="section">
         <div className="shell">
           <Reveal>
-            <p className="eyebrow text-center">What you get back</p>
+            <p className="eyebrow centred">What you get back</p>
           </Reveal>
           <Reveal delay={0.06}>
             <h2 className="display measure mt-6">Written, specific, and yours to keep.</h2>
@@ -75,8 +75,8 @@ export default function ReviewPage() {
           <div className="mt-16 grid gap-5 sm:grid-cols-3">
             {GET.map((g, i) => (
               <Reveal key={g.n} delay={0.06 * i}>
-                <div className="tile h-full bg-paper">
-                  <span className="eyebrow num">{g.n}</span>
+                <div className="tile h-full">
+                  <span className="eyebrow plain num">{g.n}</span>
                   <h3 className="mt-4 text-[1.25rem] font-semibold leading-tight tracking-[-0.02em]">
                     {g.name}
                   </h3>
@@ -101,7 +101,7 @@ export default function ReviewPage() {
         <div className="shell">
           <div className="mx-auto max-w-xl">
             <Reveal>
-              <h2 className="display text-center">Where should it go?</h2>
+              <h2 className="display centred">Where should it go?</h2>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-12">

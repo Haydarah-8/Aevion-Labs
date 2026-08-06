@@ -14,7 +14,7 @@ export function Process() {
     <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">How it works</p>
+          <p className="eyebrow">How it works</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="display measure mt-6">You are never wondering where it is up to.</h2>
@@ -25,7 +25,7 @@ export function Process() {
             <li key={s.n}>
               <Reveal delay={0.05 * i}>
                 <div className="tile tile-tight flex h-full flex-col gap-3">
-                  <span className="eyebrow num">{s.n}</span>
+                  <span className="eyebrow plain num">{s.n}</span>
                   <h3 className="text-[1.35rem] font-semibold leading-tight tracking-[-0.02em]">
                     {s.name}
                   </h3>

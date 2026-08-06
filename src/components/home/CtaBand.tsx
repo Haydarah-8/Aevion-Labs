@@ -16,17 +16,17 @@ export function CtaBand() {
     <section className="invert section-lg">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Next</p>
+          <p className="eyebrow centred">Next</p>
         </Reveal>
 
         <RevealLines
           lines={["So, what", "are you building?"]}
-          className="display-xl measure mt-6"
+          className="display-xl measure centred mt-6"
           delay={0.06}
         />
 
         <Reveal delay={0.14}>
-          <p className="lede measure mt-7">
+          <p className="lede measure centred mt-7">
             Two working days to a reply, with honest next steps and an idea of cost. No
             deck. No discovery fee. No sequence of emails.
           </p>

@@ -32,7 +32,7 @@ export function TheWork() {
     <section className="section" id="work">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Proof</p>
+          <p className="eyebrow">Proof</p>
         </Reveal>
 
         <RevealLines
@@ -52,7 +52,7 @@ export function TheWork() {
           {PROOF.map((item, i) => (
             <Reveal key={item.n} delay={0.06 * i}>
               <div className="tile tile-tight h-full">
-                <span className="eyebrow num">{item.n}</span>
+                <span className="eyebrow plain num">{item.n}</span>
                 <h3 className="mt-4 text-[1.25rem] font-semibold leading-tight tracking-[-0.02em]">
                   {item.name}
                 </h3>

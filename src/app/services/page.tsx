@@ -81,9 +81,9 @@ export default function ServicesPage() {
               Whichever one you buy, these are not extras.
             </h2>
           </Reveal>
-          <ul className="mt-12 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {BASELINE.map((b, i) => (
-              <li key={b.name} className="bg-paper">
+              <li key={b.name}>
                 <Reveal delay={0.04 * i}>
                   <div className="flex h-full flex-col gap-3 p-6 sm:p-8">
                     <span className="eyebrow">{b.n}</span>

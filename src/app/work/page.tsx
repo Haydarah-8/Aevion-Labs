@@ -94,7 +94,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="border-y border-rule bg-sheet py-14">
+      <section className="py-16">
         <div className="shell">
           <dl className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {NUMBERS.map((x, i) => (
@@ -142,7 +142,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="section border-t border-rule bg-sheet">
+      <section className="section">
         <div className="shell">
           <RevealLines
             lines={["This is the standard", "your project starts from."]}

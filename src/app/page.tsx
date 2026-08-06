@@ -19,12 +19,12 @@ export default function HomePage() {
     <main id="main">
       <Hero />
       <Recognition />
-      <LiveMetrics />
       <Services />
+      <LiveMetrics />
+      <TheWork />
+      <ScrubBand />
       <Process />
       <Standard />
-      <ScrubBand />
-      <TheWork />
       <Questions />
       <CtaBand />
     </main>

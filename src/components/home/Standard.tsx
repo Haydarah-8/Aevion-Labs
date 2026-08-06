@@ -25,10 +25,10 @@ const COMMITMENTS = [
 
 export function Standard() {
   return (
-    <section className="section bg-sheet">
+    <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">The standard</p>
+          <p className="eyebrow">The standard</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="display measure mt-6">
@@ -39,8 +39,8 @@ export function Standard() {
         <div className="mt-16 grid gap-5 sm:grid-cols-2">
           {COMMITMENTS.map((c, i) => (
             <Reveal key={c.n} delay={0.06 * i}>
-              <div className="tile h-full bg-paper">
-                <span className="eyebrow num">{c.n}</span>
+              <div className="tile h-full">
+                <span className="eyebrow plain num">{c.n}</span>
                 <h3 className="mt-4 text-[1.4rem] font-semibold leading-tight tracking-[-0.02em]">
                   {c.name}
                 </h3>

@@ -90,10 +90,10 @@ export function LiveMetrics() {
   ];
 
   return (
-    <section className="section bg-sheet">
+    <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Measured, not claimed</p>
+          <p className="eyebrow">Measured, not claimed</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="display measure mt-6">Everyone says they build fast sites.</h2>

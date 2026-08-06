@@ -32,7 +32,7 @@ export function Questions() {
     <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Before you ask</p>
+          <p className="eyebrow">Before you ask</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="display measure mt-6">
@@ -40,7 +40,7 @@ export function Questions() {
           </h2>
         </Reveal>
 
-        <div className="mx-auto mt-16 max-w-3xl">
+        <div className="mt-16 max-w-3xl">
           {QA.map((item, i) => (
             <Reveal key={item.q} delay={0.04 * i}>
               <details className="group border-b border-rule first:border-t">

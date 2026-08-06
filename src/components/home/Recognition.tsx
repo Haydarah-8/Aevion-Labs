@@ -21,10 +21,10 @@ const SYMPTOMS = [
 
 export function Recognition() {
   return (
-    <section className="section bg-sheet">
+    <section className="section">
       <div className="shell">
         <Reveal>
-          <p className="eyebrow text-center">Sound familiar</p>
+          <p className="eyebrow">Sound familiar</p>
         </Reveal>
 
         <RevealLines
@@ -33,12 +33,12 @@ export function Recognition() {
           delay={0.06}
         />
 
-        <ul className="mx-auto mt-16 grid max-w-4xl gap-4 sm:grid-cols-2">
+        <ul className="mt-16 grid gap-4 sm:grid-cols-2">
           {SYMPTOMS.map((s, i) => (
             <li key={s}>
               <Reveal delay={0.06 * i}>
-                <div className="tile tile-tight flex h-full items-start gap-4 bg-paper">
-                  <span className="eyebrow num mt-1 shrink-0">
+                <div className="tile tile-tight flex h-full items-start gap-4">
+                  <span className="eyebrow plain num mt-1 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-[1.0625rem] leading-snug">{s}</p>
