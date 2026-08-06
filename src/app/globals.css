@@ -66,15 +66,17 @@ html {
 /*
   The canvas. Two very soft washes bled in from opposite corners so the page has
   atmosphere rather than a flat fill, and so no section needs a background of
-  its own to feel distinct. Kept under 4% opacity: this must never cost text
-  contrast.
+  its own to feel distinct. Three washes rather than two, so the middle of a
+  long scroll is not flat. Ceiling is 15%: past that the tint starts eating
+  contrast from the dim text colour, which is the first thing to suffer.
 */
 body {
   position: relative;
   background-color: var(--paper);
   background-image:
-    radial-gradient(80rem 50rem at 12% -10%, rgba(47, 92, 224, 0.05), transparent 60%),
-    radial-gradient(70rem 45rem at 92% 8%, rgba(196, 150, 96, 0.06), transparent 62%);
+    radial-gradient(70rem 46rem at 8% -8%, rgba(47, 92, 224, 0.13), transparent 58%),
+    radial-gradient(62rem 42rem at 96% 4%, rgba(196, 141, 82, 0.15), transparent 60%),
+    radial-gradient(78rem 52rem at 50% 108%, rgba(47, 92, 224, 0.09), transparent 62%);
   background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-sans);
@@ -318,9 +320,10 @@ body {
     border-radius: var(--radius-lg);
     background-image: linear-gradient(
       180deg,
-      rgba(22, 22, 26, 0.035) 0%,
-      rgba(22, 22, 26, 0.012) 45%,
-      transparent 92%
+      rgba(22, 22, 26, 0.085) 0%,
+      rgba(22, 22, 26, 0.038) 42%,
+      rgba(22, 22, 26, 0.008) 78%,
+      transparent 100%
     );
   }
 
@@ -336,7 +339,7 @@ body {
   }
 
   .tile-link:hover {
-    background-color: rgba(22, 22, 26, 0.03);
+    background-color: rgba(22, 22, 26, 0.055);
     transform: translateY(-2px);
   }
 
@@ -372,14 +375,15 @@ body {
   .invert .tile {
     background-image: linear-gradient(
       180deg,
-      rgba(244, 243, 240, 0.06) 0%,
-      rgba(244, 243, 240, 0.02) 45%,
-      transparent 92%
+      rgba(244, 243, 240, 0.14) 0%,
+      rgba(244, 243, 240, 0.06) 42%,
+      rgba(244, 243, 240, 0.015) 78%,
+      transparent 100%
     );
   }
 
   .invert .tile-link:hover {
-    background-color: rgba(244, 243, 240, 0.05);
+    background-color: rgba(244, 243, 240, 0.09);
   }
 
   /* ——— motion ——— */
