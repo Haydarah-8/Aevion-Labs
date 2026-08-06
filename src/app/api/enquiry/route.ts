@@ -41,12 +41,21 @@ export async function POST(req: Request) {
     );
   }
 
+  /* Where the notification lands.
+   *
+   * Deliberately not SITE.email by default in production: that address sits on
+   * the same domain the mail is sent from, and self-addressed mail arriving via
+   * an external provider is a spoofing signature that mail hosts quarantine or
+   * drop. It also assumes a mailbox exists there at all. Set NOTIFY_EMAIL to an
+   * inbox you actually read and the problem disappears. */
+  const notify = process.env.NOTIFY_EMAIL?.trim() || SITE.email;
+
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       from: SITE.name + " <" + SITE.email + ">",
-      to: [SITE.email],
+      to: [notify],
       reply_to: email,
       subject: `Enquiry from ${name}`,
       text: `${name} <${email}>\n\n${brief}`,
