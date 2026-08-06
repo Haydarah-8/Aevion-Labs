@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
-import { CTA, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
+import { TalkLink } from "@/components/chrome/TalkModal";
 
 /**
  * The closing beat, and the only inverted surface on the site.
@@ -34,9 +34,7 @@ export function CtaBand() {
 
         <Reveal delay={0.2}>
           <div className="mt-11 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
-            <Link href="/contact" className="btn btn-lg">
-              {CTA}
-            </Link>
+            <TalkLink className="btn btn-lg" />
             <a href={"mailto:" + SITE.email} className="link-more">
               {SITE.email}
             </a>

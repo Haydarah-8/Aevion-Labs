@@ -3,6 +3,7 @@ import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/chrome/SiteNav";
 import { SiteFooter } from "@/components/chrome/SiteFooter";
+import { TalkProvider } from "@/components/chrome/TalkModal";
 import { SITE } from "@/lib/site";
 
 const grotesk = Inter_Tight({
@@ -59,9 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <SiteNav />
-        {children}
-        <SiteFooter />
+        <TalkProvider>
+          <SiteNav />
+          {children}
+          <SiteFooter />
+        </TalkProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}

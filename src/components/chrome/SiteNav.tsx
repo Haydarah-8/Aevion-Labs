@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { CTA, NAV, SITE } from "@/lib/site";
+import { NAV, SITE } from "@/lib/site";
+import { TalkLink } from "@/components/chrome/TalkModal";
 
 /**
  * One bar, per BLUEPRINT rule 4. Sticky rather than fixed so it can never cover
@@ -74,9 +75,7 @@ export function SiteNav() {
             ))}
           </ul>
 
-          <Link href="/contact" className="btn px-5 py-2.5 text-[0.9rem]">
-            {CTA}
-          </Link>
+          <TalkLink className="btn px-5 py-2.5 text-[0.9rem]" />
 
           <button
             ref={toggleRef}

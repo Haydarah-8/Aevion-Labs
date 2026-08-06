@@ -385,6 +385,83 @@ body {
   }
 }
 
+/* ——— The talk dialog ———
+   Native <dialog>, so focus trapping, Escape, the top layer and the inert
+   background are all the browser's job rather than ours. */
+.talk-dialog {
+  margin: auto;
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  color: var(--ink);
+  overflow: auto;
+}
+
+.talk-dialog::backdrop {
+  background: rgba(29, 29, 31, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.talk-panel {
+  position: relative;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.talk-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--dim);
+  background: var(--sheet);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.talk-close:hover {
+  background: var(--sheet-deep);
+  color: var(--ink);
+}
+
+/* Opens with the same easing as everything else, and does not move at all for
+   anyone who has asked for less motion. */
+.talk-dialog[open] {
+  animation: talk-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.talk-dialog[open]::backdrop {
+  animation: talk-fade 0.32s ease;
+}
+
+@keyframes talk-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes talk-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Reading progress, welded under the nav. Scroll position is the timeline, so
    nothing measures anything in JavaScript. */
 .scroll-progress {
@@ -473,6 +550,11 @@ body {
      its end state, leaving a permanently full progress bar. Remove it. */
   .scroll-progress {
     display: none !important;
+  }
+
+  .talk-dialog[open],
+  .talk-dialog[open]::backdrop {
+    animation: none !important;
   }
 
   *,

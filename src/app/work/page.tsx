@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
 import { Figure } from "@/components/media/Figure";
 import { IMAGES } from "@/lib/images";
-import { BUDGET, CTA } from "@/lib/site";
+import { BUDGET } from "@/lib/site";
+import { TalkLink } from "@/components/chrome/TalkModal";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -156,7 +157,7 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={0.14}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn">{CTA}</Link>
+              <TalkLink />
               <Link href="/services" className="btn btn-quiet">
                 What that covers
               </Link>

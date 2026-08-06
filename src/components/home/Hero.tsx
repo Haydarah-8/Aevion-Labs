@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal, RevealLines } from "@/components/motion/Reveal";
-import { CTA } from "@/lib/site";
+import { TalkLink } from "@/components/chrome/TalkModal";
 
 /* Authored line breaks: a splitting library rewrites the markup it is given,
    which is how a heading ends up nested inside itself. */
@@ -37,9 +37,7 @@ export function Hero() {
 
         <Reveal delay={0.2}>
           <div className="mt-11 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
-            <Link href="/contact" className="btn btn-lg">
-              {CTA}
-            </Link>
+            <TalkLink className="btn btn-lg" />
             <Link href="/review" className="link-more">
               Get a free review of your site
             </Link>
